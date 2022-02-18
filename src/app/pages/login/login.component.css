@@ -1,0 +1,73 @@
+.container{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(182, 225, 253);
+}
+
+.box-login{
+    padding: 10rem;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.295);
+    text-align: center;
+    border-radius: 5px;
+}
+
+.control{
+    margin: 1.5rem 0;
+}
+
+.control-2{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.input{
+    width: 350px;
+    height: 40px;
+    border: 0;
+    background-color: rgba(128, 128, 128, 0.158);
+    font-size: 20px;
+    border-bottom: 1px solid rgb(156, 156, 156);
+}
+
+input:focus{
+    outline: none;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.295);
+}
+
+.input::placeholder{
+    font-size: 20px;
+}
+
+.btn{
+    width: 100%;
+    height: 40px;
+    margin: 1.5rem 0;
+    border: none;
+    background-color: rgb(102, 173, 255);
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn:hover{
+    background-color: rgb(79, 159, 250);
+}
+
+.register{
+    color: rgb(0, 119, 255);
+    cursor: pointer;
+}
+
+.remember-box{
+    display: flex;
+}
+
+#remember{
+    margin-right: 5px;
+}

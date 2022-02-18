@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="box-login">
+        <h1 class="title">Login</h1>
+        <form (submit)="login()">
+            <div class="control">
+                <input class="input" [(ngModel)]="user.email" name="email" type="text" placeholder="Email">
+            </div>
+            <div class="control">
+                <input class="input" [(ngModel)]="user.password" name="password" type="password" placeholder="Password">
+            </div>
+            <div class="control-2">
+                <div class="remember-box">
+                    <input type="checkbox" name="remember" [(ngModel)]="remember" name="Recuerdame" id="remember">
+                    <label for="remember">Recuerdame</label>
+                </div>
+                <label class="register" (click)="goToRegister()" >¿No tienes cuenta?</label>
+            </div>
+            <button class="btn" type="submit">Ingresar</button>
+        </form>
+    </div>
+</div>

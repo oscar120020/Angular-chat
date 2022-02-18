@@ -1,0 +1,20 @@
+<div class="container">
+    <div class="box-login">
+        <h1 class="title">Register</h1>
+        <form (submit)="register()">
+            <div class="control">
+                <input class="input" [(ngModel)]="user.name" name="name" type="text" placeholder="Name" required>
+            </div>
+            <div class="control">
+                <input class="input" [(ngModel)]="user.email" name="email" type="text" placeholder="Email" required>
+            </div>
+            <div class="control">
+                <input class="input" [(ngModel)]="user.password" name="password" type="password" placeholder="Password" required>
+            </div>
+            <div class="control-2">
+                <label class="register" (click)="goToLogin()" >¿Ya tienes cuenta?</label>
+            </div>
+            <button class="btn" type="submit">Registrarse</button>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,17 @@
+.sidebar{
+    width: 100%;
+    /* background-color: blueviolet; */
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.info{
+    height: 10%;
+    width: 100%;
+}
+
+.box-contact{
+    height: 90%;
+    width: 100%;
+}

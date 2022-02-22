@@ -1,0 +1,27 @@
+.contact{
+    height: 70px;
+
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.39);
+}
+
+.image-perfil{
+    width: 50px;
+    border-radius: 50%;
+}
+
+.contact-info{
+    margin-left: 0.5rem;
+}
+
+.name{
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.state{
+    color: rgb(255, 0, 0);
+    font-weight: bold;
+}

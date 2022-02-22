@@ -1,0 +1,42 @@
+.message-box{
+    justify-content: end;
+    padding: 1rem;
+    display: flex;
+}
+
+.content{
+    display: flex;
+    background-color: #bbdcff;
+    padding: 0.5rem;
+    border-radius: 5px;
+    max-width: 50%;
+    position: relative;
+}
+
+.content::after{
+    content: "";
+    position: absolute;
+    width: 5px;
+    right: -10px;
+    bottom: 0;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid #bbdcff;
+}
+
+.message{
+    display: flex;
+    align-items: center;
+}
+
+.message > p{
+    margin-left: 0.5rem;
+}
+
+.time{
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    margin-left: 1rem;
+    font-size: 12px;
+    min-width: 50px;
+}

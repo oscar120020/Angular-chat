@@ -1,0 +1,40 @@
+.chat-form{
+    /* background-color: rgb(165, 228, 102); */
+    height: 100%;
+    width: 100%;
+
+}
+
+.form{
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.input{
+    width: 90%;
+    padding: 0 1rem;
+}
+.input-form{
+    width: 100%;
+    height: 100%;
+    border: none;
+    font-size: 20px;
+}
+
+.input-form:focus{
+    outline: none;
+}
+
+.send{
+    width: 10%;
+}
+
+button{
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-left: 1px solid rgba(128, 128, 128, 0.377);
+    font-weight: bold;
+    background-color: rgb(240, 247, 247);
+}

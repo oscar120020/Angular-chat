@@ -6,10 +6,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./chat-form.component.css']
 })
 export class ChatFormComponent implements OnInit {
-
+  
+  message: string = "";
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  enviar(){
+    if(this.message){
+      console.log(this.message);
+      this.message = ""
+    }
   }
 
 }

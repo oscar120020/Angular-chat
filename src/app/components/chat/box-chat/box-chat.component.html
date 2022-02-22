@@ -1,0 +1,18 @@
+<div class="box-chat">
+    <div class="head">
+        <app-chat-inbox-head></app-chat-inbox-head>
+    </div>
+    <div class="messages">
+        <div *ngFor="let message of messages">
+            <div class="send" *ngIf="message % 2 !== 0; else recived">
+                <app-message-sent></app-message-sent>
+            </div>
+            <ng-template #recived class="received" >
+                <app-message-received></app-message-received>
+            </ng-template>
+        </div>
+    </div>
+    <div class="form">
+        <app-chat-form></app-chat-form>
+    </div>
+</div>

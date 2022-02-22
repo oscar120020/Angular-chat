@@ -1,1 +1,10 @@
-<p>chat-form works!</p>
+<div class="chat-form">
+    <form (submit)="enviar()" class="form">
+        <div class="input">
+            <input type="text" name="message" [(ngModel)]="message" class="input-form" placeholder="Escribe un mensaje" >
+        </div>
+        <div class="send">
+            <button type="submit">Send</button>
+        </div>
+    </form>
+</div>

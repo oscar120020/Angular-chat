@@ -1,0 +1,25 @@
+.sidebar-info{
+    width: calc(100% - 1rem);
+    height: calc(100% - 1rem);
+    padding: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.356);
+}
+
+.photo{
+    display: flex;
+    align-items: center;
+}
+
+.image-perfil{
+    width: 50px;
+    border-radius: 50%;
+}
+
+.salir{
+    padding: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+}

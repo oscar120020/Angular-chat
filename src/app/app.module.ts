@@ -15,6 +15,8 @@ import { MessageSentComponent } from './components/chat/message-sent/message-sen
 import { ChatFormComponent } from './components/chat/chat-form/chat-form.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { BoxChatComponent } from './components/chat/box-chat/box-chat.component';
+import { ChatInboxHeadComponent } from './components/chat/chat-inbox-head/chat-inbox-head.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { HttpClientModule } from '@angular/common/http';
     BoxContactComponent,
     MessageReceivedComponent,
     MessageSentComponent,
-    ChatFormComponent
+    ChatFormComponent,
+    BoxChatComponent,
+    ChatInboxHeadComponent
   ],
   imports: [
     BrowserModule,

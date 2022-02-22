@@ -1,0 +1,27 @@
+.inbox-box{
+    height: 100%;
+    width: 100%;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.342);
+    display: flex;
+}
+
+.image{
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 10%;
+    margin-left: 1rem;
+}
+
+.name{
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+}
+
+.image-perfil{
+    width: 35px;
+    border-radius: 50%;
+}

@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { contact } from 'src/app/interfaces/contact-interface';
 
 @Component({
   selector: 'app-contact',
@@ -7,7 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ContactComponent implements OnInit {
 
-  @Input() number: number;
+  @Input() contact: contact;
   constructor() { }
   ngOnInit(): void {
   }

@@ -3,7 +3,10 @@
         <img src="https://cdn.pixabay.com/photo/2012/04/13/21/07/user-33638_960_720.png" alt="perfil" class="image-perfil">
     </div>
     <div class="contact-info">
-        <p class="name">Nombre personal</p>
-        <span class="state">Offline</span>
+        <p class="name">{{contact.name}}</p>
+        <span *ngIf="contact.online, else offline" class="online">Online</span>
+        <ng-template #offline>
+            <span class="offline">Offline</span>
+        </ng-template>
     </div>
 </div>

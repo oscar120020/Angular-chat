@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from 'src/app/services/auth.service';
+import { contact } from 'src/app/interfaces/contact-interface';
+import { SocketService } from 'src/app/services/socket.service';
 
 @Component({
   selector: 'app-chat',
@@ -7,11 +8,16 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./chat.component.css']
 })
 export class ChatComponent implements OnInit {
+  
+  contacts: contact[];
 
-  constructor(private authService: AuthService) {
-  }
+  constructor(private socketService: SocketService) {}
 
   ngOnInit(): void {
+    this.socketService.connect()
+    this.socketService.getUserList().subscribe((data: contact[]) => {
+      this.contacts = data
+    })
   }
 
 }

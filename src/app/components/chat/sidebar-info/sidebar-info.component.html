@@ -1,9 +1,9 @@
 <div class="sidebar-info">
     <div class="photo">
         <img src="https://cdn.pixabay.com/photo/2012/04/13/21/07/user-33638_960_720.png" alt="perfil" class="image-perfil">
-        <h3 class="name" >Oscar martinez</h3>
+        <h3 class="name" >{{user?.name}}</h3>
     </div>
-    <div class="salir">
+    <div (click)="logout()" class="salir">
         <p>Salir</p>
     </div>
 </div>

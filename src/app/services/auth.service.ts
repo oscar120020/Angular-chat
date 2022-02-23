@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
 import { login, register } from '../interfaces/auth-interfaces';
+import { contact } from '../interfaces/contact-interface';
 
 @Injectable({
   providedIn: 'root'
@@ -8,9 +9,9 @@ import { login, register } from '../interfaces/auth-interfaces';
 export class AuthService {
   private api_url = "http://localhost:8080"
   constructor(private http: HttpClient) { }
-  authenticeted = {
-    isLoggedin: false
-  }
+  isLoggedin: boolean = false
+  user: contact;
+
   login(data: login){
     return this.http.post(`${this.api_url}/api/login`, data)
   }

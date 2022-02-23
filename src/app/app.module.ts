@@ -17,6 +17,10 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BoxChatComponent } from './components/chat/box-chat/box-chat.component';
 import { ChatInboxHeadComponent } from './components/chat/chat-inbox-head/chat-inbox-head.component';
+import { SocketIoConfig, SocketIoModule } from 'ngx-socket-io';
+import { CustomSocket } from './services/customSocket';
+
+const config: SocketIoConfig = {url: "http://localhost:8080"}
 
 @NgModule({
   declarations: [
@@ -38,9 +42,10 @@ import { ChatInboxHeadComponent } from './components/chat/chat-inbox-head/chat-i
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    SocketIoModule.forRoot(config)
   ],
-  providers: [],
+  providers: [CustomSocket],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

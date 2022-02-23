@@ -33,7 +33,8 @@ export class RegisterComponent implements OnInit {
       .subscribe(
         (res: any) => {
           localStorage.setItem("token", res.token)
-          this.authService.authenticeted.isLoggedin = true
+          this.authService.isLoggedin = true
+          this.authService.user = res.user
           this.user = {
             name: '',
             email: '',

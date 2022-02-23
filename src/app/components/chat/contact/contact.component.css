@@ -21,7 +21,12 @@
     margin-bottom: 0.5rem;
 }
 
-.state{
+.online{
+    color: rgb(43, 255, 0);
+    font-weight: bold;
+}
+
+.offline{
     color: rgb(255, 0, 0);
     font-weight: bold;
 }

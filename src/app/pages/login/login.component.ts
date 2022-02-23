@@ -29,9 +29,12 @@ export class LoginComponent implements OnInit {
       this.authService.login(this.user)
       .subscribe(
         (res: any) => {
+          console.log(res);
+          
           this.saveToken(res.token)
           this.saveEmail(this.remember, this.user.email)
-          this.authService.authenticeted.isLoggedin = true
+          this.authService.isLoggedin = true
+          this.authService.user = res.user
           this.user = {
             email: '',
             password: ''

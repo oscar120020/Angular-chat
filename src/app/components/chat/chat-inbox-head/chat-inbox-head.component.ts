@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { contact } from 'src/app/interfaces/contact-interface';
+import { ChatService } from 'src/app/services/chat.service';
 
 @Component({
   selector: 'app-chat-inbox-head',
@@ -7,6 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChatInboxHeadComponent implements OnInit {
 
+  @Input() chatUserInfo: contact;
   constructor() { }
 
   ngOnInit(): void {

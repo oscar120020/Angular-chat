@@ -1,12 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { message } from '../interfaces/message-interface';
+import { contact } from '../interfaces/contact-interface';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ChatService {
   currentChat: message[] = [];
+  chatUser: contact;
   chatSelected: string;
   baseUrl = "http://localhost:8080"
   constructor(private http: HttpClient) {}
@@ -20,8 +22,8 @@ export class ChatService {
     })
     .subscribe((data: any) => {
       const messages: message[] = data.messages
-      console.log(messages)
       this.currentChat = messages
+      this.chatUser = data.user
     })
   }
 }

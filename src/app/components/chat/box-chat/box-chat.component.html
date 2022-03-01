@@ -1,14 +1,14 @@
 <div class="box-chat">
     <div class="head">
-        <app-chat-inbox-head></app-chat-inbox-head>
+        <app-chat-inbox-head [chatUserInfo]="chatService.chatUser" ></app-chat-inbox-head>
     </div>
     <div class="messages">
         <div *ngFor="let message of chatService.currentChat">
             <div class="send" *ngIf="message.to == chatService.chatSelected; else recived">
-                <app-message-sent [message]="message" ></app-message-sent>
+                <app-message-sent (doScroll)="scroll()" [message]="message" ></app-message-sent>
             </div>
             <ng-template #recived class="received" >
-                <app-message-received [message]="message" ></app-message-received>
+                <app-message-received (doScroll)="scroll()" [message]="message" ></app-message-received>
             </ng-template>
         </div>
     </div>

@@ -11,6 +11,15 @@ export class BoxChatComponent implements OnInit {
   constructor(public chatService: ChatService) { }
 
   ngOnInit(): void {
+    console.log("box");
+  }
+
+  scroll(){
+    const box = document.querySelector(".messages")
+    let height = box!.scrollHeight;
+    if(height){
+      box!.scrollTop = height
+    }
   }
 
 }

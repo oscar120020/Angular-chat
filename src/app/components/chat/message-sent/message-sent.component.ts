@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { message } from 'src/app/interfaces/message-interface';
 
 @Component({
@@ -9,9 +9,11 @@ import { message } from 'src/app/interfaces/message-interface';
 export class MessageSentComponent implements OnInit {
   
   @Input() message: any;
-  constructor() { }
+  @Output() doScroll = new EventEmitter<void>();
+  constructor() {}
 
   ngOnInit(): void {
+    this.doScroll.emit()
   }
 
 }

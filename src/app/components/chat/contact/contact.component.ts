@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { contact } from 'src/app/interfaces/contact-interface';
+import { ChatService } from 'src/app/services/chat.service';
 
 @Component({
   selector: 'app-contact',
@@ -9,8 +10,13 @@ import { contact } from 'src/app/interfaces/contact-interface';
 export class ContactComponent implements OnInit {
 
   @Input() contact: contact;
-  constructor() { }
+  token = localStorage.getItem("token") ?? ""
+  constructor(private chatService: ChatService) { }
   ngOnInit(): void {
+  }
+
+  select(uid: string){
+    this.chatService.getAllMessages(uid, this.token)
   }
 
 }

@@ -3,7 +3,15 @@
     <div class="sidebar">
         <app-sidebar [contacts]="contacts"></app-sidebar>
     </div>
-    <div class="chat-box">
+    <div *ngIf="chatService.chatSelected; else noChatSelected" class="chat-box">
         <app-box-chat></app-box-chat>
     </div>
+    <ng-template #noChatSelected>
+        <div class="no-chat-box">
+            <div class="no-chat">
+                <h1>Ningún chat seleccionado</h1>
+                <p>Seleccione uno para iniciar la conversación</p>
+            </div>
+        </div>
+    </ng-template>
 </div>

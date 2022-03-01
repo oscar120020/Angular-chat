@@ -1,10 +1,10 @@
 <div class="message-box">
     <div class="content">
         <div class="message">
-            <p>Hola como asdsad sadsadsad</p>
+            <p>{{message.message}}</p>
         </div>
         <div class="time">
-            <p>3:00 PM</p>
+            <p>{{message.createdAt | date:'shortTime'}}</p>
         </div>
     </div>
 </div>

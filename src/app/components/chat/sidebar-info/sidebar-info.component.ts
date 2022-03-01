@@ -2,26 +2,38 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { contact } from 'src/app/interfaces/contact-interface';
 import { AuthService } from 'src/app/services/auth.service';
+import { ChatService } from 'src/app/services/chat.service';
 import { SocketService } from 'src/app/services/socket.service';
 
 @Component({
   selector: 'app-sidebar-info',
   templateUrl: './sidebar-info.component.html',
-  styleUrls: ['./sidebar-info.component.css']
+  styleUrls: ['./sidebar-info.component.css'],
 })
 export class SidebarInfoComponent implements OnInit {
-  
   user: contact;
-  constructor(private authService: AuthService, private router: Router, private socketService: SocketService) {}
-  
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private socketService: SocketService,
+    private chatService: ChatService
+  ) {}
+
   ngOnInit(): void {
-    this.user = this.authService.user
+    this.user = this.authService.user;
   }
 
-  logout(){
-    localStorage.removeItem("token")
-    this.router.navigate(["/login"])
-    this.socketService.disconnect()
+  logout() {
+    localStorage.removeItem('token');
+    this.router.navigate(['/login']);
+    this.socketService.disconnect();
+    this.authService.user = {
+      email: '',
+      name: '',
+      online: false,
+      uid: '',
+    };
+    this.chatService.currentChat = []
+    this.chatService.chatSelected = ""
   }
-
 }

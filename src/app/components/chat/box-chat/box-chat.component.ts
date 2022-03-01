@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ChatService } from 'src/app/services/chat.service';
 
 @Component({
   selector: 'app-box-chat',
@@ -7,9 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BoxChatComponent implements OnInit {
 
-  constructor() { }
-
-  messages: number[] = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+  constructor(public chatService: ChatService) { }
 
   ngOnInit(): void {
   }

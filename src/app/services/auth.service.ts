@@ -8,7 +8,9 @@ import { contact } from '../interfaces/contact-interface';
 })
 export class AuthService {
   private api_url = "http://localhost:8080"
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+    console.log("gggg");
+  }
   isLoggedin: boolean = false
   user: contact;
 

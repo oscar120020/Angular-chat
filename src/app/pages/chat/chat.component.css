@@ -12,3 +12,21 @@
 .chat-box{
     width: 70%;
 }
+
+.no-chat-box{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+}
+
+.no-chat{
+    background-color: rgb(101, 189, 211);
+    width: 100%;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}

@@ -1,5 +1,4 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { message } from 'src/app/interfaces/message-interface';
 
 @Component({
   selector: 'app-message-sent',

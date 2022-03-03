@@ -4,9 +4,15 @@
     </div>
     <div class="contact-info">
         <p class="name">{{contact.name}}</p>
-        <span *ngIf="contact.online, else offline" class="online">Online</span>
-        <ng-template #offline>
-            <span class="offline">Offline</span>
+        <span class="writing" *ngIf="isWriting && whoWrite === contact.uid; else onlineState">
+            <div class="dot-flashing"></div>
+            Escribiendo
+        </span>
+        <ng-template #onlineState>
+            <span *ngIf="contact.online, else offline" class="online">Online</span>
+            <ng-template #offline>
+                <span class="offline">Offline</span>
+            </ng-template>
         </ng-template>
     </div>
 </div>

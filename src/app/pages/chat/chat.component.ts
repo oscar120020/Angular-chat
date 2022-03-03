@@ -22,8 +22,6 @@ export class ChatComponent implements OnInit {
     this.socketService.getUserList().subscribe((data: contact[]) => {
       this.contacts = data.filter(d => d.uid !== this.authService.user.uid)
     })
-    console.log("aja");
-    
     this.socketService.getMessagee()
   }
 

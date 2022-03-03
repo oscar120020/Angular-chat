@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { contact } from 'src/app/interfaces/contact-interface';
 import { ChatService } from 'src/app/services/chat.service';
+import { SocketService } from 'src/app/services/socket.service';
 
 @Component({
   selector: 'app-contact',
@@ -11,8 +12,14 @@ export class ContactComponent implements OnInit {
 
   @Input() contact: contact;
   token = localStorage.getItem("token") ?? ""
-  constructor(private chatService: ChatService) { }
+  isWriting: boolean;
+  whoWrite: string;
+  constructor(private chatService: ChatService, private socketService: SocketService) { }
   ngOnInit(): void {
+    this.socketService.socket.on("writing", ({from, writing}) => {
+      this.isWriting = writing
+      this.whoWrite = from
+    })
   }
 
   select(uid: string){

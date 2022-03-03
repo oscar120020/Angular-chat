@@ -23,13 +23,14 @@
     border-bottom: 10px solid rgb(48, 49, 46);
 }
 
-
 .message{
     display: flex;
     align-items: center;
 }
 
-.message > p{
+.message-p{
+    display: inline-block;
+    word-break: break-word;
     margin-left: 0.5rem;
 }
 

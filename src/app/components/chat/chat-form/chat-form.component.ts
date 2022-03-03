@@ -11,10 +11,21 @@ import { SocketService } from 'src/app/services/socket.service';
 })
 export class ChatFormComponent implements OnInit {
   
-  message: string = "";
+  message: string;
+  time: any;
   constructor(private socketService: SocketService, private chatService: ChatService, private authService: AuthService) { }
 
   ngOnInit(): void {
+  }
+
+  inputChage(event: string){
+    this.message = event
+    this.socketService.emitWriting(true, this.chatService.chatSelected, this.authService.user.uid)
+    clearInterval(this.time)
+    this.time = setInterval(() => {
+      this.socketService.emitWriting(false, this.chatService.chatSelected, this.authService.user.uid)
+      clearInterval(this.time)
+    }, 1300)
   }
 
   enviar(){

@@ -10,7 +10,7 @@ import { ChatService } from './chat.service';
   providedIn: 'root',
 })
 export class SocketService {
-  private socket: Socket;
+  socket: Socket;
   constructor(private chatService: ChatService) {
     this.socket = io('http://localhost:8080', {transports: ['websocket']});
   }
@@ -29,6 +29,18 @@ export class SocketService {
     this.socket.on('inbox-message', (message: message) => {
       this.chatService.currentChat.push(message)
     });
+  }
+
+  emitWriting(writing: boolean, to: string, from: string){
+    this.socket.emit("writing", {
+      writing, 
+      from,
+      to,
+    })
+  }
+
+  getWriting(){
+
   }
 
   emitMessage(payload: message){

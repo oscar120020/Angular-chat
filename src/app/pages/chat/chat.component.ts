@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { interval } from 'rxjs';
 import { contact } from 'src/app/interfaces/contact-interface';
 import { AuthService } from 'src/app/services/auth.service';
 import { ChatService } from 'src/app/services/chat.service';
@@ -14,15 +13,16 @@ export class ChatComponent implements OnInit {
   
   contacts: contact[];
   token = localStorage.getItem("token") ?? ""
-  constructor(private socketService: SocketService, private authService: AuthService, public chatService: ChatService) {}
-
+  constructor(public socketService: SocketService, private authService: AuthService, public chatService: ChatService) {}
+  
   ngOnInit(): void {
     this.socketService.connect()
     this.socketService.emitMainConnection(this.token)
-    this.socketService.getUserList().subscribe((data: contact[]) => {
-      this.contacts = data.filter(d => d.uid !== this.authService.user.uid)
+    this.socketService.getUserList(this.authService.user.uid).subscribe(() => {
+      this.socketService.filterUserList("")
     })
     this.socketService.getMessagee()
   }
+
 
 }

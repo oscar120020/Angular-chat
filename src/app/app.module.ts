@@ -18,6 +18,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { BoxChatComponent } from './components/chat/box-chat/box-chat.component';
 import { ChatInboxHeadComponent } from './components/chat/chat-inbox-head/chat-inbox-head.component';
 import { CustomSocket } from './services/customSocket';
+import { SidebarSearchComponent } from './components/chat/sidebar-search/sidebar-search.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { CustomSocket } from './services/customSocket';
     MessageSentComponent,
     ChatFormComponent,
     BoxChatComponent,
-    ChatInboxHeadComponent
+    ChatInboxHeadComponent,
+    SidebarSearchComponent,
   ],
   imports: [
     BrowserModule,

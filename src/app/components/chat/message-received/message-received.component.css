@@ -37,7 +37,7 @@
 .time{
     display: flex;
     flex-direction: column;
-    justify-content: end;
+    justify-content: flex-end;
     margin-left: 1rem;
     font-size: 12px;
     min-width: 50px;

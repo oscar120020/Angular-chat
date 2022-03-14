@@ -1,7 +1,7 @@
 
 <div class="box">
     <div class="sidebar">
-        <app-sidebar [contacts]="contacts"></app-sidebar>
+        <app-sidebar [contacts]="socketService.contacts"></app-sidebar>
     </div>
     <div *ngIf="chatService.chatSelected; else noChatSelected" class="chat-box">
         <app-box-chat></app-box-chat>

@@ -8,13 +8,29 @@ import { ChatService } from 'src/app/services/chat.service';
 })
 export class BoxChatComponent implements OnInit {
 
-  constructor(public chatService: ChatService) { }
+  constructor(public chatService: ChatService) { 
+  }
+  currentScroll:any;
 
   ngOnInit(): void {
-    console.log("box");
+    const box = document.querySelector(".messages")
+    box!.addEventListener("scroll", () => {
+      if(box!.scrollTop === 0){
+        // traer nuevos mensajes
+        this.chatService.offset+=10
+        this.chatService.getAllMessages(this.chatService.chatSelected, localStorage.getItem("token") ?? "")
+      }
+    })
+    this.chatService.$emitter.subscribe(() => {
+      setTimeout(() => {
+        this.scroll()
+      }, 200)
+    })
   }
 
   scroll(){
+    console.log("hace scroll");
+    
     const box = document.querySelector(".messages")
     let height = box!.scrollHeight;
     if(height){

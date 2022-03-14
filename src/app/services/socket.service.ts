@@ -11,18 +11,26 @@ import { ChatService } from './chat.service';
 })
 export class SocketService {
   socket: Socket;
+  contactsBack: contact[];
+  contacts: contact[];
   constructor(private chatService: ChatService) {
     this.socket = io('http://localhost:8080', {transports: ['websocket']});
   }
 
-  getUserList(): Observable<contact[]> {
+  getUserList(userId: string): Observable<boolean>{
     return new Observable((observer) => {
-      if (localStorage.getItem('token')) {
         this.socket.on('user-list', (users: contact[]) => {
-          observer.next(users);
+          this.contactsBack = users.filter(d => d.uid !== userId)
+          observer.next(true);
         });
-      }
     });
+  }
+
+  filterUserList(query: string){    
+    this.contacts = [...this.contactsBack]
+    if(query){
+      this.contacts = this.contacts.filter(d => d.name.includes(query))
+    }
   }
 
   getMessagee(){

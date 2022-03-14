@@ -1,7 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { contact } from 'src/app/interfaces/contact-interface';
 import { ChatService } from 'src/app/services/chat.service';
 import { SocketService } from 'src/app/services/socket.service';
+import { BoxChatComponent } from '../box-chat/box-chat.component';
 
 @Component({
   selector: 'app-contact',
@@ -15,6 +16,7 @@ export class ContactComponent implements OnInit {
   isWriting: boolean;
   whoWrite: string;
   constructor(private chatService: ChatService, private socketService: SocketService) { }
+
   ngOnInit(): void {
     this.socketService.socket.on("writing", ({from, writing}) => {
       this.isWriting = writing
@@ -23,7 +25,11 @@ export class ContactComponent implements OnInit {
   }
 
   select(uid: string){
-    this.chatService.getAllMessages(uid, this.token)
+    this.chatService.currentChat = []
+    this.chatService.offset = 0
+    this.chatService.getAllMessages(uid, this.token).subscribe(() => {
+      this.chatService.$emitter.emit()
+    })
   }
 
 }

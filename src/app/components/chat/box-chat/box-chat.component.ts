@@ -21,7 +21,7 @@ export class BoxChatComponent implements OnInit {
         this.chatService.getAllMessages(this.chatService.chatSelected, localStorage.getItem("token") ?? "")
       }
     })
-    this.chatService.$emitter.subscribe(() => {
+    this.chatService.$selectNewChatEmitter.subscribe(() => {
       setTimeout(() => {
         this.scroll()
       }, 200)

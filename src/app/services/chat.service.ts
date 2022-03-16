@@ -13,7 +13,7 @@ export class ChatService {
   chatSelected: string;
   baseUrl = "http://localhost:8080"
   offset: number = 0;
-  $emitter = new EventEmitter()
+  $selectNewChatEmitter = new EventEmitter()
   query: string = "";
   constructor(private http: HttpClient) {}
 

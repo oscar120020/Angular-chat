@@ -7,8 +7,6 @@ import { contact } from 'src/app/interfaces/contact-interface';
   styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent implements OnInit {
-  
-  @Input() contacts: contact[];
   constructor() { }
 
   ngOnInit(): void {

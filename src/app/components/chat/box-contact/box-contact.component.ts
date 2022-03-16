@@ -1,5 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { contact } from 'src/app/interfaces/contact-interface';
+import { Component, OnInit } from '@angular/core';
+import { SocketService } from 'src/app/services/socket.service';
 
 @Component({
   selector: 'app-box-contact',
@@ -7,9 +7,7 @@ import { contact } from 'src/app/interfaces/contact-interface';
   styleUrls: ['./box-contact.component.css']
 })
 export class BoxContactComponent implements OnInit {
-
-  @Input() contacts: contact[];
-  constructor() { }
+  constructor(public socketService: SocketService) { }
   ngOnInit(): void {
   }
 

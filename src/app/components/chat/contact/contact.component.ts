@@ -28,7 +28,7 @@ export class ContactComponent implements OnInit {
     this.chatService.currentChat = []
     this.chatService.offset = 0
     this.chatService.getAllMessages(uid, this.token).subscribe(() => {
-      this.chatService.$emitter.emit()
+      this.chatService.$selectNewChatEmitter.emit()
     })
   }
 

@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { AuthService } from 'src/app/services/auth.service';
+import { ChatService } from 'src/app/services/chat.service';
 import { SocketService } from 'src/app/services/socket.service';
 
 @Component({
@@ -10,12 +10,13 @@ import { SocketService } from 'src/app/services/socket.service';
 export class SidebarSearchComponent implements OnInit {
   
   search: string;
-  constructor(private socketService: SocketService, private authService: AuthService) { }
+  constructor(private socketService: SocketService, private chatService: ChatService) { }
 
   ngOnInit(): void {
   }
 
   inputChange(element: string){
+    this.chatService.query = element
     this.socketService.filterUserList(element)
   }
 

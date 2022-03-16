@@ -19,7 +19,7 @@ export class ChatComponent implements OnInit {
     this.socketService.connect()
     this.socketService.emitMainConnection(this.token)
     this.socketService.getUserList(this.authService.user.uid).subscribe(() => {
-      this.socketService.filterUserList("")
+      this.socketService.filterUserList(this.chatService.query)
     })
     this.socketService.getMessagee()
   }

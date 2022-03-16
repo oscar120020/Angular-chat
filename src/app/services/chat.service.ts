@@ -14,6 +14,7 @@ export class ChatService {
   baseUrl = "http://localhost:8080"
   offset: number = 0;
   $emitter = new EventEmitter()
+  query: string = "";
   constructor(private http: HttpClient) {}
 
   getAllMessages(uid: string, token: string){

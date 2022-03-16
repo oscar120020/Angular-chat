@@ -11,7 +11,7 @@ import { ChatService } from './chat.service';
 })
 export class SocketService {
   socket: Socket;
-  contactsBack: contact[];
+  contactsBackUp: contact[];
   contacts: contact[];
   constructor(private chatService: ChatService) {
     this.socket = io('http://localhost:8080', {transports: ['websocket']});
@@ -20,14 +20,14 @@ export class SocketService {
   getUserList(userId: string): Observable<boolean>{
     return new Observable((observer) => {
         this.socket.on('user-list', (users: contact[]) => {
-          this.contactsBack = users.filter(d => d.uid !== userId)
+          this.contactsBackUp = users.filter(d => d.uid !== userId)
           observer.next(true);
         });
     });
   }
 
   filterUserList(query: string){    
-    this.contacts = [...this.contactsBack]
+    this.contacts = [...this.contactsBackUp]
     if(query){
       this.contacts = this.contacts.filter(d => d.name.includes(query))
     }

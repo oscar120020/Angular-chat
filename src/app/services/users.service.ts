@@ -6,5 +6,7 @@ import { Injectable } from '@angular/core';
 export class UsersService {
 
   query: string = "";
+  isOpenSearchMessage = false
+  userActive: string;
   constructor() { }
 }

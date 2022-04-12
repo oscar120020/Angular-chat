@@ -5,6 +5,8 @@ import { contact } from '../interfaces/contact-interface';
 import { CustomSocket } from './customSocket';
 import { message } from '../interfaces/message-interface';
 import { ChatService } from './chat.service';
+import { UsersService } from './users.service';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root',
@@ -13,7 +15,8 @@ export class SocketService {
   socket: Socket;
   contactsBackUp: contact[];
   contacts: contact[];
-  constructor(private chatService: ChatService) {
+  waitMessages: number = 0
+  constructor(private chatService: ChatService, private authService: AuthService) {
     this.socket = io('http://localhost:8080', {transports: ['websocket']});
   }
 
@@ -35,7 +38,15 @@ export class SocketService {
 
   getMessagee(){
     this.socket.on('inbox-message', (message: message) => {
-      this.chatService.currentChat.push(message)
+      if(message.from === this.authService.user.uid){
+        this.chatService.getLastMessages(message.to)
+      }else{
+        if(this.chatService.boxChatHeight){
+          this.chatService.currentChat.push(message)
+        }else{
+          this.waitMessages += 1
+        }
+      }
     });
   }
 
@@ -45,10 +56,6 @@ export class SocketService {
       from,
       to,
     })
-  }
-
-  getWriting(){
-
   }
 
   emitMessage(payload: message){

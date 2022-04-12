@@ -14,11 +14,24 @@
 }
 
 .name{
-    width: 90%;
+    width: 80%;
     display: flex;
     justify-content: center;
     align-items: center;
     font-weight: bold;
+}
+
+.name > p{
+    margin: 0 !important;
+}
+
+.search-button{
+    width: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    cursor: pointer;
 }
 
 .image-perfil{

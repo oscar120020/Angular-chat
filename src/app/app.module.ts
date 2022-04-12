@@ -19,7 +19,12 @@ import { BoxChatComponent } from './components/chat/box-chat/box-chat.component'
 import { ChatInboxHeadComponent } from './components/chat/chat-inbox-head/chat-inbox-head.component';
 import { CustomSocket } from './services/customSocket';
 import { SidebarSearchComponent } from './components/chat/sidebar-search/sidebar-search.component';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatIconModule} from '@angular/material/icon';
+import { SearchMessageHeadComponent } from './components/searchMessages/search-message-head/search-message-head.component';
+import { SearchMessageFormComponent } from './components/searchMessages/search-message-form/search-message-form.component';
+import { SearchMessageResultsComponent } from './components/searchMessages/search-message-results/search-message-results.component';
+import { MessageCardComponent } from './components/searchMessages/message-card/message-card.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,12 +41,18 @@ import { SidebarSearchComponent } from './components/chat/sidebar-search/sidebar
     BoxChatComponent,
     ChatInboxHeadComponent,
     SidebarSearchComponent,
+    SearchMessageHeadComponent,
+    SearchMessageFormComponent,
+    SearchMessageResultsComponent,
+    MessageCardComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatIconModule
   ],
   providers: [CustomSocket],
   bootstrap: [AppComponent]

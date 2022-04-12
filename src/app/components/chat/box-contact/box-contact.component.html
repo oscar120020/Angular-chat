@@ -1,3 +1,10 @@
 <div class="box-contact">
-    <app-contact *ngFor="let each of socketService.contacts" [contact]="each"></app-contact>
+    <div class="empty-contacts" *ngIf="!socketService?.contacts?.length; else contactos" >
+        <div class="message-box">
+            <h3 class="message">Contacto(s) no encontrado(s)</h3>
+        </div>
+    </div>
+    <ng-template #contactos>
+        <app-contact *ngFor="let each of socketService.contacts" [contact]="each"></app-contact>
+    </ng-template>
 </div>

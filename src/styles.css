@@ -5,3 +5,5 @@
     padding: 0;
     font-family: "Roboto Serif";
 }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

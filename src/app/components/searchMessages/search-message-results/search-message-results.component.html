@@ -1,0 +1,3 @@
+<div class="results">
+    <app-message-card *ngFor="let message of chatService.searchMessagesList" [message]="message" (click)="emitMessageclick(message.msgId!)" ></app-message-card>
+</div>

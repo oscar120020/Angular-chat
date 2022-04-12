@@ -1,0 +1,27 @@
+.head{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    /* justify-content: space-between; */
+    align-items: center;
+}
+
+.close{
+    width: 10%;
+    margin-left: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.text{
+    width: 90%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.text > h2{
+    margin: 0;
+}

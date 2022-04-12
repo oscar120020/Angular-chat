@@ -1,0 +1,19 @@
+.card{
+    width: 100%;
+    height: 50px;
+    padding: 0.5rem;
+    border-top: 1px solid rgba(128, 128, 128, 0.356);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.message{
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+/* .date{
+
+} */

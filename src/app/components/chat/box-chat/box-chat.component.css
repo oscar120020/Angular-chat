@@ -82,16 +82,24 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    border: 3px solid #1bd136;
 }
 
-.unread-messages p{
+.number{
     position: absolute;
-    color: #1bd136;
+    background-color: #1bd136;
+    height: 25px;
+    width: 25px;
     font-size: 18px;
-    top: 12.5%;
+    top: -5px;
+    right: -5px;
+    border-radius: 50%;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .icon{
-    color: #1bd136;
     transform: scale(2);
 }

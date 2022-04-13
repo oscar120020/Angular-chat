@@ -14,7 +14,7 @@
             </div>
             <div (click)="pendingMessages()" *ngIf="socketService.waitMessages > 0" class="unread-messages" >
                 <mat-icon class="icon" >keyboard_arrow_down</mat-icon>
-                <p>{{socketService.waitMessages}}</p>
+                <div class="number" >{{socketService.waitMessages}}</div>
             </div>
         </div>
         <div class="form">

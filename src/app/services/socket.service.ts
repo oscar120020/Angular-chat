@@ -39,7 +39,7 @@ export class SocketService {
   getMessagee(){
     this.socket.on('inbox-message', (message: message) => {
       if(message.from === this.authService.user.uid){
-        this.chatService.getLastMessages(message.to)
+        this.chatService.getLastMessages(message.to).subscribe()
       }else{
         if(this.chatService.boxChatHeight){
           this.chatService.currentChat.push(message)

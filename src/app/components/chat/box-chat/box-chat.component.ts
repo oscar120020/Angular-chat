@@ -102,10 +102,11 @@ export class BoxChatComponent implements OnInit {
   }
 
   pendingMessages(){
-    console.log("vamos a ver");
-    
     this.socketService.waitMessages = 0
     this.chatService.getLastMessages(this.chatService.chatSelected)
+    .subscribe(() => {
+      this.doScroll()
+    })
   }
 
 }

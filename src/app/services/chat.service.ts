@@ -93,11 +93,14 @@ export class ChatService {
   }
 
   getLastMessages(uid: string){
-    this.offsetTop = 0
-    this.offsetBotton = 0
-    this.getAllMessages(uid, localStorage.getItem("token") ?? "", true)
-    .subscribe((data: any) => {
-      this.currentChat = data.messages
+    return new Observable((observer) => {
+      this.offsetTop = 0
+      this.offsetBotton = 0
+      this.getAllMessages(uid, localStorage.getItem("token") ?? "", true)
+      .subscribe((data: any) => {
+        this.currentChat = data.messages
+        observer.next(true)
+      })
     })
   }
 

@@ -27,5 +27,14 @@ export class ChatComponent implements OnInit {
       this.socketService.filterUserList(this.usersService.query);
     });
     this.socketService.getMessagee();
+    this.usersService.$openPerfil.subscribe((value) => {
+      const perfilBox = document.querySelector<HTMLElement>(".perfil")
+      if(value){
+        perfilBox!.style.transform = "translateX(0)"
+      }else{
+        perfilBox!.style.transform = "translateX(-100%)"
+      }
+      
+    })
   }
 }

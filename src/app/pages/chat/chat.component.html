@@ -1,7 +1,12 @@
 
 <div class="box">
-    <div class="sidebar">
-        <app-sidebar></app-sidebar>
+    <div class="sidebar-perfil">
+        <div class="perfil">
+            <app-perfil></app-perfil>
+        </div>
+        <div class="sidebar">
+            <app-sidebar></app-sidebar>
+        </div>
     </div>
     <div *ngIf="chatService.chatSelected; else noChatSelected" class="chat-box">
         <app-box-chat></app-box-chat>

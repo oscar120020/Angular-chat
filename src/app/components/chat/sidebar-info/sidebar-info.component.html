@@ -3,7 +3,11 @@
         <img src="https://cdn.pixabay.com/photo/2012/04/13/21/07/user-33638_960_720.png" alt="perfil" class="image-perfil">
         <h3 class="name" >{{user?.name}}</h3>
     </div>
-    <div (click)="logout()" class="salir">
-        <p>Salir</p>
+    <div class="salir">
+        <mat-icon (click)="handleOptions()" class="icon" >more_horiz</mat-icon>
+        <ul *ngIf="isOptionsActive" class="menu" >
+            <li (click)="handlePerfil()" >Perfil</li>
+            <li (click)="logout()">Salir</li>
+        </ul>
     </div>
 </div>

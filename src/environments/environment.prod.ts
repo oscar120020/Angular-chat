@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiURL: ""
+  apiURL: "https://chat-server-angular.herokuapp.com"
 };

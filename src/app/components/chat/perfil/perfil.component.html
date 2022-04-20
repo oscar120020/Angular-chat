@@ -8,7 +8,7 @@
     <div class="info">
         <div class="foto">
             <div class="image-box">
-                <img [src]="authService.user.imageUrl ?? '../../../../assets/no-perfil.jpg'" alt="perfil" class="image-perfil" (click)="fileImage.click()" >
+                <img [src]="authService.user.imageUrl?.medium ?? '../../../../assets/no-perfil.jpg'" alt="perfil" class="image-perfil" (click)="fileImage.click()" >
             </div>
             <div class="text">
                 <mat-icon>camera_alt</mat-icon>

@@ -3,5 +3,12 @@ export interface contact {
     name: string;
     online: boolean;
     uid: string;
-    imageUrl?: string;
+    imageUrl?: images;
+}
+
+interface images {
+    extraSmall: string;
+    small: string;
+    medium: string;
+    original :string
 }

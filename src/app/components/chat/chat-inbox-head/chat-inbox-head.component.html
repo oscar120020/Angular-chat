@@ -1,7 +1,7 @@
 <div class="inbox-box">
     <div class="image">
         <div class="image-box">
-            <img [src]="chatUserInfo.imageUrl ?? '../../../../assets/no-perfil.jpg'" alt="perfil" class="image-perfil">
+            <img [src]="chatUserInfo.imageUrl?.extraSmall ?? '../../../../assets/no-perfil.jpg'" alt="perfil" class="image-perfil">
         </div>
     </div>
     <div class="name">

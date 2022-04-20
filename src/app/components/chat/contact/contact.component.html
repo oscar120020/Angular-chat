@@ -1,4 +1,4 @@
-<div (click)="select(contact.uid)" class="contact">
+<div (click)="select(contact.uid)" class="contact" [ngClass]="contact.uid === chatService.chatSelected ? 'active' : '' ">
     <div class="photo">
         <div class="image-box">
             <img [src]="contact.imageUrl?.small ?? '../../../../assets/no-perfil.jpg'" alt="perfil" class="image-perfil">

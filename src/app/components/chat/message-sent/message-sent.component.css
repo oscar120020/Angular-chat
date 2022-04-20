@@ -6,11 +6,12 @@
 
 .content{
     display: flex;
-    background-color: #bbdcff;
+    background-color: #005c4b;
     padding: 0.5rem;
     border-radius: 5px;
     max-width: 50%;
     position: relative;
+    color: white;
     
 }
 
@@ -21,7 +22,7 @@
     right: -10px;
     bottom: 0;
     border-right: 10px solid transparent;
-    border-bottom: 10px solid #bbdcff;
+    border-bottom: 10px solid #005c4b;
 }
 
 .message{

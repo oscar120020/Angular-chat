@@ -6,7 +6,7 @@
 .content{
     display: flex;
     position: relative;
-    background-color: rgb(48, 49, 46);
+    background-color: #202c33;
     padding: 0.5rem;
     border-radius: 5px;
     max-width: 50%;
@@ -20,7 +20,7 @@
     left: -10px;
     bottom: 0;
     border-left: 10px solid transparent;
-    border-bottom: 10px solid rgb(48, 49, 46);
+    border-bottom: 10px solid #202c33;
 }
 
 .message{

@@ -6,6 +6,7 @@
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid rgba(128, 128, 128, 0.356);
+    background-color: #1d252b;
 }
 
 .photo{
@@ -44,6 +45,7 @@
     font-weight: bold;
     cursor: pointer;
     position: relative;
+    
 }
 
 .icon{
@@ -52,6 +54,7 @@
     border-radius: 50%;
     padding: .4rem;
     transition: all .2s ease-in-out;
+    color: white;
 }
 
 .icon:hover{
@@ -60,17 +63,18 @@
 
 .menu{
     position: absolute;
-    background-color: white;
+    background-color: #25343d;
     list-style: none;
     right: calc(10px);
     bottom: calc(-2.8rem - 40px);
     width: 200px;
-    border: 2px solid rgba(101, 189, 211, 0.644);
+    border: 1px solid rgba(101, 189, 211, 0.644);
 }
 
 .menu li{
     padding: .7rem 1rem;
-
+    color: white;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.342);
 }
 
 .menu li:hover{
@@ -81,4 +85,5 @@
 .name{
     margin: 0;
     padding-left: 0.5rem;
+    color: white;
 }

@@ -14,8 +14,13 @@
     border-top: 1px solid rgba(128, 128, 128, 0.5);
     border-bottom: 1px solid rgba(128, 128, 128, 0.5);
     font-size: 18px;
-    background-color: aliceblue;
     padding: 0 0.3rem;
+    background-color: #1d252b;
+    color: white;
+}
+
+.input-search::placeholder{
+    color: rgba(202, 202, 202, 0.575);
 }
 
 .input-search:focus{

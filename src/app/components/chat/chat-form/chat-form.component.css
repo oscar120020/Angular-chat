@@ -20,6 +20,8 @@
     height: 100%;
     border: none;
     font-size: 20px;
+    background-color: #111b21;
+    color: white;
 }
 
 .input-form:focus{
@@ -36,5 +38,6 @@ button{
     border: none;
     border-left: 1px solid rgba(128, 128, 128, 0.377);
     font-weight: bold;
-    background-color: rgb(240, 247, 247);
+    background-color: #202c33;
+    color: white;
 }

@@ -7,6 +7,10 @@
     border-bottom: 1px solid rgba(128, 128, 128, 0.39);
 }
 
+.active{
+  background-color: #21272b65;
+}
+
 .image-perfil{
   width: 30px;
   height: 30px;
@@ -40,21 +44,24 @@
 .name{
     font-weight: bold;
     margin-bottom: 0.5rem;
+    color: white;
 }
 
 .online{
-    color: rgb(43, 255, 0);
+    color: #005c4b;
     font-weight: bold;
 }
 
 .offline{
-    color: rgb(255, 0, 0);
+    color: rgba(250, 39, 39, 0.418);
     font-weight: bold;
+    /* color: #2c3338; */
 }
 
 .writing{
     display: flex;
     align-items: center;
+    color: white;
 }
 
 .dot-flashing {

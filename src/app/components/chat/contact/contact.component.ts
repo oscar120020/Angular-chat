@@ -16,7 +16,7 @@ export class ContactComponent implements OnInit {
   token = localStorage.getItem("token") ?? ""
   isWriting: boolean;
   whoWrite: string;
-  constructor(private chatService: ChatService, private socketService: SocketService, private usersService: UsersService) { }
+  constructor(public chatService: ChatService, private socketService: SocketService, private usersService: UsersService) { }
 
   ngOnInit(): void {
     this.socketService.socket.on("writing", ({from, writing}) => {

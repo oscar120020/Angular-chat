@@ -14,8 +14,9 @@
     border-top: 1px solid rgba(128, 128, 128, 0.5);
     border-bottom: 1px solid rgba(128, 128, 128, 0.5);
     font-size: 18px;
-    background-color: aliceblue;
+    background-color: #1d252b;
     padding: 0 0.3rem;
+    color: white;
 }
 
 .input-search:focus{

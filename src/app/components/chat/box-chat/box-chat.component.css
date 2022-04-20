@@ -1,6 +1,6 @@
 .box-chat{
     display: flex;
-    /* background-color: burlywood; */
+    background-color: #111b21;
     width: 100%;
     height: 100%;
     /* align-items: center; */
@@ -27,7 +27,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border-left: 1px solid rgba(128, 128, 128, 0.356);
+    border-left: 1px solid rgba(128, 128, 128, 0.116);
 }
 
 .head{

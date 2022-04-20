@@ -3,6 +3,7 @@
     width: 100%;
     border-bottom: 1px solid rgba(128, 128, 128, 0.342);
     display: flex;
+    background-color: #1d252b;
 }
 
 .image{
@@ -23,6 +24,7 @@
 
 .name > p{
     margin: 0 !important;
+    color: white;
 }
 
 .search-button{
@@ -32,6 +34,7 @@
     align-items: center;
     font-weight: bold;
     cursor: pointer;
+    color: white;
 }
 
 .image-perfil{

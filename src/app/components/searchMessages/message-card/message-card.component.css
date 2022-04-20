@@ -7,6 +7,11 @@
     flex-direction: column;
     justify-content: center;
     cursor: pointer;
+    color: white;
+}
+
+.card:hover{
+    background-color: rgba(128, 128, 128, 0.144);
 }
 
 .message{

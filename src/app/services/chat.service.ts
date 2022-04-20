@@ -4,6 +4,7 @@ import { message } from '../interfaces/message-interface';
 import { contact } from '../interfaces/contact-interface';
 import { Observable } from 'rxjs';
 import { SocketService } from './socket.service';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,7 @@ export class ChatService {
   currentChat: message[] = [];
   chatUser: contact;
   chatSelected: string;
-  baseUrl = "http://localhost:8080"
+  baseUrl = environment.apiURL
   offsetTop: number = 0;
   offsetBotton: number = 0;
   offsetFind: number = 0;

@@ -2,12 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
 import { login, register } from '../interfaces/auth-interfaces';
 import { contact } from '../interfaces/contact-interface';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  private api_url = "http://localhost:8080"
+  private api_url = environment.apiURL
   constructor(private http: HttpClient) {}
   isLoggedin: boolean = false
   user: contact;

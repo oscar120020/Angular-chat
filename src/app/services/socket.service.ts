@@ -7,6 +7,7 @@ import { message } from '../interfaces/message-interface';
 import { ChatService } from './chat.service';
 import { UsersService } from './users.service';
 import { AuthService } from './auth.service';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -17,7 +18,7 @@ export class SocketService {
   contacts: contact[];
   waitMessages: number = 0
   constructor(private chatService: ChatService, private authService: AuthService) {
-    this.socket = io('http://localhost:8080', {transports: ['websocket']});
+    this.socket = io(environment.apiURL, {transports: ['websocket']});
   }
 
   getUserList(userId: string): Observable<boolean>{

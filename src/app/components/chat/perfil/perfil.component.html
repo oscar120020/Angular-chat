@@ -5,5 +5,44 @@
         </div>
         <p>Perfil</p>
     </div>
+    <div class="info">
+        <div class="foto">
+            <div class="image-box">
+                <img [src]="authService.user.imageUrl ?? '../../../../assets/no-perfil.jpg'" alt="perfil" class="image-perfil" (click)="fileImage.click()" >
+            </div>
+            <div class="text">
+                <mat-icon>camera_alt</mat-icon>
+                <p>Cambiar foto</p>
+            </div>
+            <input class="file" type="file" (change)="handleImage($event)" #fileImage>
+        </div>
+        <div class="inputs">
+            <div class="name">
+                <h2>Tu nombre</h2>
+                <div #nameValue class="name-value">
+                    <h1>{{authService.user.name}}</h1>
+                    <mat-icon class="edit-icon" (click)="handleHide(nameValue, nameChange)" >edit</mat-icon>
+                </div>
+                <form #nameChange #nameform="ngForm" (ngSubmit)="handleSubmitName(nameform, nameValue, nameChange)" class="name-change">
+                    <mat-icon class="edit-icon-2" (click)="handleShow(nameValue, nameChange)" >keyboard_backspace</mat-icon>
+                    <input type="text" name="name"placeholder="Nuevo nombre" ngModel>
+                </form>
+            </div>
+            <div class="password">
+                <h2>Tu contraseña</h2>
+                <div #passValue class="password-value">
+                    <h1>Cambiar</h1>
+                    <mat-icon class="edit-icon" (click)="handleHide(passValue, passChange)" >fingerprint</mat-icon>
+                </div>
+                <form #passChange #nameform2="ngForm" (ngSubmit)="handleSubmitPassword(nameform2, passValue, passChange)" class="password-change">
+                    <mat-icon class="edit-icon-2" (click)="handleShow(passValue, passChange)" >keyboard_backspace</mat-icon>
+                    <input type="password" name="currentPassword" placeholder="Antigua contraseña" ngModel>
+                    <input type="password" name="newPassword" placeholder="Nueva contraseña" ngModel>
+                    <p *ngIf="errorMessage" >{{errorMessage}}</p>
+                    <button type="submit" >Cambiar</button>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
 

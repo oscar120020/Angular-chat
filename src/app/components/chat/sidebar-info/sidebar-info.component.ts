@@ -12,10 +12,10 @@ import { UsersService } from 'src/app/services/users.service';
   styleUrls: ['./sidebar-info.component.css'],
 })
 export class SidebarInfoComponent implements OnInit {
-  user: contact;
+
   isOptionsActive: boolean = false
   constructor(
-    private authService: AuthService,
+    public authService: AuthService,
     private router: Router,
     private socketService: SocketService,
     private chatService: ChatService,
@@ -23,7 +23,7 @@ export class SidebarInfoComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.user = this.authService.user;
+    
   }
 
   logout() {

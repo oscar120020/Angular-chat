@@ -20,7 +20,7 @@ export class ChatService {
   $selectMessageEmmiter = new EventEmitter<string>()
   query: string = "";
   searchMessagesList: message[] = [];
-  boxChatHeight: boolean;
+  boxChatHeight: boolean = true;
   constructor(private http: HttpClient) {}
 
   getAllMessages(uid: string, token: string, getTop: boolean, msgId?: string){

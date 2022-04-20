@@ -3,4 +3,5 @@ export interface contact {
     name: string;
     online: boolean;
     uid: string;
+    imageUrl?: string;
 }

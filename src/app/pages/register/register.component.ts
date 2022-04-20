@@ -28,7 +28,6 @@ export class RegisterComponent implements OnInit {
   }
 
   register(){
-    console.log(this.user);
     if(this.user.email && this.user.name && this.user.password){
       this.authService.register(this.user)
       .subscribe(

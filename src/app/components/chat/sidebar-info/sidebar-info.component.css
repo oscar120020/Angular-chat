@@ -15,7 +15,28 @@
 
 .image-perfil{
     width: 50px;
+    height: 50px;
     border-radius: 50%;
+}
+
+.image-box{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.image-perfil{
+    width: 100%;
+    height: 100%;
+}
+
+@supports(object-fit: cover){
+    .image-perfil{
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+    }
 }
 
 .salir{
@@ -55,4 +76,9 @@
 .menu li:hover{
     background-color: rgba(128, 128, 128, 0.349);
     
+}
+
+.name{
+    margin: 0;
+    padding-left: 0.5rem;
 }

@@ -22,6 +22,7 @@ export class ChatService {
   query: string = "";
   searchMessagesList: message[] = [];
   boxChatHeight: boolean = true;
+  oneScreen = false
   constructor(private http: HttpClient) {}
 
   getAllMessages(uid: string, token: string, getTop: boolean, msgId?: string){

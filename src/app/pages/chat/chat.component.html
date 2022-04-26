@@ -1,6 +1,6 @@
 
 <div class="box">
-    <div class="sidebar-perfil">
+    <div class="sidebar-perfil" *ngIf="!chatService.chatSelected || (chatService.chatSelected && !chatService.oneScreen)" [ngClass]="(chatService.oneScreen && !chatService.chatSelected) ? 'justSidebar' : ''" >
         <div class="perfil">
             <app-perfil></app-perfil>
         </div>
@@ -8,15 +8,13 @@
             <app-sidebar></app-sidebar>
         </div>
     </div>
-    <div *ngIf="chatService.chatSelected; else noChatSelected" class="chat-box">
+    <div *ngIf="chatService.chatSelected" class="chat-box" [ngClass]="(chatService.oneScreen && chatService.chatSelected) ? 'justChat' : ''">
         <app-box-chat></app-box-chat>
     </div>
-    <ng-template #noChatSelected>
-        <div class="no-chat-box">
-            <div class="no-chat">
-                <h1>Ningún chat seleccionado</h1>
-                <p>Seleccione uno para iniciar la conversación</p>
-            </div>
+    <div *ngIf="!chatService.oneScreen && !chatService.chatSelected" class="no-chat-box">
+        <div class="no-chat">
+            <h1>Ningún chat seleccionado</h1>
+            <p>Seleccione uno para iniciar la conversación</p>
         </div>
-    </ng-template>
+    </div>
 </div>

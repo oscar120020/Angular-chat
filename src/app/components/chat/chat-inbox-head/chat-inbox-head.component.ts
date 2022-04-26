@@ -11,13 +11,18 @@ import { UsersService } from 'src/app/services/users.service';
 export class ChatInboxHeadComponent implements OnInit {
 
   @Input() chatUserInfo: contact;
-  constructor(private usersService: UsersService) { }
+  constructor(private usersService: UsersService, public chatService: ChatService) { }
 
   ngOnInit(): void {
   }
 
   openSearch(){
     this.usersService.isOpenSearchMessage = true
+  }
+
+  cleanChat(){
+    this.chatService.currentChat = []
+    this.chatService.chatSelected = "" 
   }
 
 }

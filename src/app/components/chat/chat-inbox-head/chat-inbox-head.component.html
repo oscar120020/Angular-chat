@@ -1,4 +1,5 @@
 <div class="inbox-box">
+    <mat-icon (click)="cleanChat()" *ngIf="chatService.oneScreen" class="back-icon" >keyboard_arrow_left</mat-icon>
     <div class="image">
         <div class="image-box">
             <img [src]="chatUserInfo.imageUrl?.extraSmall ?? '../../../../assets/no-perfil.jpg'" alt="perfil" class="image-perfil">

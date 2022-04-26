@@ -13,11 +13,12 @@ import { UsersService } from 'src/app/services/users.service';
 export class ChatComponent implements OnInit {
   contacts: contact[];
   token = localStorage.getItem('token') ?? '';
+  
   constructor(
     public socketService: SocketService,
     private authService: AuthService,
     public chatService: ChatService,
-    public usersService: UsersService
+    public usersService: UsersService,
   ) {}
 
   ngOnInit(): void {
@@ -36,5 +37,13 @@ export class ChatComponent implements OnInit {
       }
       
     })
+    this.resezeFunction()
   }
+
+  resezeFunction(){
+    if(window.innerWidth <= 630){
+      this.chatService.oneScreen = true
+    }
+  }
+  
 }

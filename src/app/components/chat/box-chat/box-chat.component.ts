@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 import { ChatService } from 'src/app/services/chat.service';
 import { SocketService } from 'src/app/services/socket.service';
 import { UsersService } from 'src/app/services/users.service';
@@ -8,38 +8,41 @@ import { UsersService } from 'src/app/services/users.service';
   templateUrl: './box-chat.component.html',
   styleUrls: ['./box-chat.component.css']
 })
-export class BoxChatComponent implements OnInit {
+export class BoxChatComponent implements AfterViewInit {
 
   constructor(public chatService: ChatService, public usersService: UsersService, public socketService: SocketService) {}
 
   currentScroll:any;
   lastChild: any;
   elementToScroll: any;
-  // isUserActive: boolean = this.chatService.chatSelected === this.usersService.userActive
-  ngOnInit(): void {
-    const box = document.querySelector<HTMLElement>(".messages")
-    box?.addEventListener("scroll", () => {
-      this.updateMessages(box)
-      // console.log(box!.scrollTop);
-      if((box!.scrollHeight - 872) === box!.scrollTop){
+  @ViewChild("messageBox") messageBox: ElementRef
+  
+  ngAfterViewInit(): void {
+    this.messageBox.nativeElement.addEventListener("scroll", () => {
+      this.updateMessages(this.messageBox.nativeElement)
+      if((this.messageBox.nativeElement.scrollHeight - 1000) < this.messageBox.nativeElement.scrollTop){
         this.chatService.boxChatHeight = true
       }else{
         this.chatService.boxChatHeight = false
       }
       
     })
-    this.chatSelected()
+    setTimeout(() => {
+      this.doScroll()
+    }, 300)
     this.chatService.$selectMessageEmmiter.subscribe((msgId) => {
-      this.messageSelected(msgId);
+      this.usersService.isOpenSearchMessage = false
+      setTimeout(() => {
+        this.messageSelected(msgId);
+      }, 300)
     })
   }
 
   doScroll(){
-    const box = document.querySelector<HTMLElement>(".messages")
-    box!.style.scrollBehavior = "smooth"
-    let height = box!.scrollHeight;
+    this.messageBox.nativeElement.style.scrollBehavior = "smooth"
+    let height = this.messageBox.nativeElement.scrollHeight;
     if(height){
-      box!.scrollTop = height - 872
+      this.messageBox.nativeElement.scrollTop = height
     }
   }
 
@@ -47,7 +50,7 @@ export class BoxChatComponent implements OnInit {
     if(target!.scrollTop === 0 && this.chatService.chatSelected === this.usersService.userActive){
       this.scrollToTop(target)
     }
-    if(target!.scrollTop === (target!.scrollHeight - 872) && this.chatService.chatSelected === this.usersService.userActive){
+    if(target!.scrollTop > (target!.scrollHeight - 1000) && this.chatService.chatSelected === this.usersService.userActive){
       this.scrollToBotton()
     }
   }
@@ -65,31 +68,29 @@ export class BoxChatComponent implements OnInit {
   }
 
   scrollToBotton(){
-    if(this.chatService.offsetBotton > 0){
-      this.chatService.offsetBotton -= 20
-      this.chatService.getAllMessages(this.chatService.chatSelected, localStorage.getItem("token") ?? "", false)
-      .subscribe()
+    if(this.chatService.offsetBotton > 0 || this.socketService.waitMessages){
+      if(this.socketService.waitMessages){
+        this.chatService.getLastMessages(this.chatService.chatSelected)
+        .subscribe(() => {
+          this.socketService.waitMessages = 0
+        })
+      }else{
+        this.chatService.offsetBotton -= 20
+        this.chatService.getAllMessages(this.chatService.chatSelected, localStorage.getItem("token") ?? "", false)
+        .subscribe()
+      }
     }
   }
 
-  chatSelected(){
-    this.chatService.$selectNewChatEmitter.subscribe(() => {
-      setTimeout(() => {
-        this.doScroll()
-      }, 200)
-    })
-  }
-
   messageSelected(idMsg: string){
-    const box = document.querySelector<HTMLElement>(".messages")
     this.chatService.getMessagePosition(this.chatService.chatSelected, localStorage.getItem("token") ?? "", idMsg)
     .subscribe(() => {
       this.chatService.getAllMessages(this.chatService.chatSelected, localStorage.getItem("token") ?? "", true, idMsg)
       .subscribe(() => {
         setTimeout(() => {
-          box!.childNodes.forEach((child: any) => {
+          this.messageBox.nativeElement.childNodes.forEach((child: any) => {
             if(child.id === idMsg){
-              box!.scrollTop = child.offsetTop - 48
+              this.messageBox.nativeElement.scrollTop = child.offsetTop - 48
               child.style.backgroundColor = "#4a99579a"
               setTimeout(() => {
                 child.style.backgroundColor = "#ffffff00"

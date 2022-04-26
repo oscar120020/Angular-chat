@@ -4,6 +4,7 @@
     border-bottom: 1px solid rgba(128, 128, 128, 0.342);
     display: flex;
     background-color: #1d252b;
+    align-items: center;
 }
 
 .image{
@@ -53,6 +54,13 @@
 .image-perfil{
     width: 100%;
     height: 100%;
+}
+
+.back-icon{
+    color: white;
+    transform: scale(1.3);
+    padding: 0.5rem;
+    cursor: pointer;
 }
 
 @supports(object-fit: cover){

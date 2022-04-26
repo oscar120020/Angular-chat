@@ -1,9 +1,9 @@
 <div class="box-chat">
-    <div class="box1" [ngClass]="!usersService.isOpenSearchMessage ? 'fullwidht' : ''">
+    <div class="box1" [ngClass]="[!usersService.isOpenSearchMessage ? 'fullwidht' : '', !(!usersService.isOpenSearchMessage || (usersService.isOpenSearchMessage && !chatService.oneScreen)) ? 'disabled' : '']">
         <div class="head">
             <app-chat-inbox-head [chatUserInfo]="chatService.chatUser" ></app-chat-inbox-head>
         </div>
-        <div class="messages">
+        <div #messageBox class="messages">
             <div class="box-message" *ngFor="let message of chatService.currentChat" [id]="message.msgId">
                 <div class="send" *ngIf="message.to == chatService.chatSelected; else recived">
                     <app-message-sent (doScroll)="doScroll()" [message]="message" ></app-message-sent>
@@ -21,7 +21,7 @@
             <app-chat-form></app-chat-form>
         </div>
     </div>
-    <div *ngIf="usersService.isOpenSearchMessage" class="box2">
+    <div *ngIf="usersService.isOpenSearchMessage" class="box2" [ngClass]="chatService.oneScreen ? 'fullScreen' : '' " >
         <div class="search-head">
             <app-search-message-head></app-search-message-head>
         </div>

@@ -33,7 +33,7 @@ export class SocketService {
   filterUserList(query: string){    
     this.contacts = [...this.contactsBackUp]
     if(query){
-      this.contacts = this.contacts.filter(d => d.name.includes(query))
+      this.contacts = this.contacts.filter(d => d.name.toLowerCase().includes(query.toLowerCase()))
     }
   }
 
@@ -42,10 +42,12 @@ export class SocketService {
       if(message.from === this.authService.user.uid){
         this.chatService.getLastMessages(message.to).subscribe()
       }else{
-        if(this.chatService.boxChatHeight){
-          this.chatService.currentChat.push(message)
-        }else{
-          this.waitMessages += 1
+        if(message.from === this.chatService.chatSelected){
+          if(this.chatService.boxChatHeight){
+            this.chatService.currentChat.push(message)
+          }else{
+            this.waitMessages += 1
+          }
         }
       }
     });

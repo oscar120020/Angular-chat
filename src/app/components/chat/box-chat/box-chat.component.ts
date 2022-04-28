@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ChatService } from 'src/app/services/chat.service';
 import { SocketService } from 'src/app/services/socket.service';
 import { UsersService } from 'src/app/services/users.service';
@@ -8,7 +8,7 @@ import { UsersService } from 'src/app/services/users.service';
   templateUrl: './box-chat.component.html',
   styleUrls: ['./box-chat.component.css']
 })
-export class BoxChatComponent implements AfterViewInit {
+export class BoxChatComponent implements AfterViewInit, OnInit {
 
   constructor(public chatService: ChatService, public usersService: UsersService, public socketService: SocketService) {}
 
@@ -16,6 +16,14 @@ export class BoxChatComponent implements AfterViewInit {
   lastChild: any;
   elementToScroll: any;
   @ViewChild("messageBox") messageBox: ElementRef
+
+  ngOnInit(): void {
+    this.chatService.$selectNewChatEmitter.subscribe(() => {
+      setTimeout(() => {
+        this.doScroll()
+      }, 300)
+    })
+  }
   
   ngAfterViewInit(): void {
     this.messageBox.nativeElement.addEventListener("scroll", () => {
@@ -27,9 +35,6 @@ export class BoxChatComponent implements AfterViewInit {
       }
       
     })
-    setTimeout(() => {
-      this.doScroll()
-    }, 300)
     this.chatService.$selectMessageEmmiter.subscribe((msgId) => {
       this.usersService.isOpenSearchMessage = false
       setTimeout(() => {

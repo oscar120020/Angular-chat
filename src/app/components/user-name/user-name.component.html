@@ -1,0 +1,15 @@
+<div class="content">
+    <form class="form" (ngSubmit)="sendUserName()" >
+        <h1>Nombre de usuario</h1>
+        <div class="input">
+            <mat-icon class="icon" >person</mat-icon>
+            <div class="line"></div>
+            <input type="text" name="userName" [(ngModel)]="userName" class="input-form" placeholder="Nombre de usuario" autocomplete="off" >
+        </div>
+        <h3 *ngIf="msgError" class="error" >{{msgError}}</h3>
+        <div class="send">
+            <button type="submit">Enviar</button>
+        </div>
+    </form>
+</div>
+

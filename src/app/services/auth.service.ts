@@ -21,6 +21,14 @@ export class AuthService {
     return this.http.post(`${this.api_url}/api/login/new`, data)
   }
 
+  updateUserName(userName: string, token: string){
+    return this.http.put(`${this.api_url}/api/login/update-username`, {userName}, {
+      headers: {
+        "x-token": token
+      }
+    })
+  }
+
   validateToken(token: string){
     return this.http.get(`${this.api_url}/api/login/renew`, {
       headers:{

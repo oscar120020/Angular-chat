@@ -26,6 +26,7 @@ import { SearchMessageFormComponent } from './components/searchMessages/search-m
 import { SearchMessageResultsComponent } from './components/searchMessages/search-message-results/search-message-results.component';
 import { MessageCardComponent } from './components/searchMessages/message-card/message-card.component';
 import { PerfilComponent } from './components/chat/perfil/perfil.component';
+import { UserNameComponent } from './components/user-name/user-name.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,6 +48,7 @@ import { PerfilComponent } from './components/chat/perfil/perfil.component';
     SearchMessageResultsComponent,
     MessageCardComponent,
     PerfilComponent,
+    UserNameComponent,
   ],
   imports: [
     BrowserModule,

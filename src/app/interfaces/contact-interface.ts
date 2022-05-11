@@ -4,6 +4,7 @@ export interface contact {
     online: boolean;
     uid: string;
     imageUrl?: images;
+    userName?: string
 }
 
 interface images {

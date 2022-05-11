@@ -17,6 +17,12 @@
             <input class="file" type="file" (change)="handleImage($event)" #fileImage>
         </div>
         <div class="inputs">
+            <div class="userName">
+                <h2>Nombre de usuario</h2>
+                <div>
+                    <h1>{{authService.user.userName}}</h1>
+                </div>
+            </div>
             <div class="name">
                 <h2>Tu nombre</h2>
                 <div #nameValue class="name-value">

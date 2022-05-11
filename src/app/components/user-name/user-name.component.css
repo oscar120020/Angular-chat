@@ -1,0 +1,92 @@
+
+.content{
+    position: relative;
+    background-color: #16242c;
+    width: 80%;
+    height: 300px;
+    max-width: 500px;
+    max-height: 300px;
+    border-radius: 5px;
+    padding: 1rem;
+}
+
+.form{
+    width: 100%;
+    height: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
+    margin: auto;
+}
+
+.form h1{
+    color: white;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.input-label{
+    color: white;
+    margin-bottom: 0.5rem;
+}
+
+.input{
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.486);
+}
+
+.icon{
+    color: white;
+    padding-bottom: 0.2rem;
+}
+
+.line{
+    width: 1px;
+    height: 70%;
+    background-color: rgba(128, 128, 128, 0.486);
+    margin: auto 5px;
+}
+
+.input-form{
+    width: 100%;
+    height: 30px;
+    font-size: 20px;
+    border: none;
+    background-color: #16242c00;
+    color: white;
+}
+
+.input-form:focus{
+    outline: none;
+}
+
+.send{
+    margin-top: 2rem;
+    width: 100%;
+}
+
+.send button{
+    width: 100%;
+    background-color: rgb(101, 189, 211);
+    color: white;
+    font-weight: 500;
+    font-size: 16px;
+    height: 40px;
+    border: 1px solid rgba(128, 128, 128, 0.274);
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.send button:hover{
+    background-color: rgb(63, 181, 211);;
+}
+.error{
+    color: rgb(241, 90, 90);
+    font-weight: 300;
+    margin: 0;
+}

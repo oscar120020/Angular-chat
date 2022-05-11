@@ -17,4 +17,5 @@
             <p>Seleccione uno para iniciar la conversación</p>
         </div>
     </div>
+    <app-user-name *ngIf="!authService.user.userName" class="user-name"></app-user-name>
 </div>

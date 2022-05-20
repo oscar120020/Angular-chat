@@ -1,14 +1,16 @@
 <div class="sidebar-info">
-    <div class="photo">
-        <div class="image-box">
+    <div class="photo" (click)="usersService.$openPerfil.emit(true)">
+        <div class="image-box" >
             <img [src]="authService.user.imageUrl?.small ?? '../../../../assets/no-perfil.jpg'" alt="perfil" class="image-perfil">
         </div>
         <h3 class="name" >{{authService.user.name}}</h3>
     </div>
     <div class="salir">
+        <p *ngIf="authService.user.requests.length > 0 && !isOptionsActive" >{{authService.user.requests.length}}</p>
         <mat-icon (click)="handleOptions()" class="icon" >more_horiz</mat-icon>
         <ul *ngIf="isOptionsActive" class="menu" >
             <li (click)="handlePerfil()" >Perfil</li>
+            <li (click)="handleSolicitud()" ><p>Solicitudes</p><p class="solicitud-parrafo" >{{authService.user.requests.length}}</p></li>
             <li (click)="logout()">Salir</li>
         </ul>
     </div>

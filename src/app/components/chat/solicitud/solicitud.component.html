@@ -1,0 +1,33 @@
+<div class="solicitud">
+    <div class="bar">
+        <div class="icon-box">
+            <mat-icon class="icon" (click)="handleBack()"  >arrow_back</mat-icon>
+        </div>
+        <div class="line"></div>
+        <p>Solicitudes</p>
+    </div>
+    <div class="search-box">
+        <div class="search">
+            <mat-icon class="icon-search" >search</mat-icon>
+            <div class="line2"></div>
+            <input type="text" placeholder="Buscar por usuario" name="searchContacts" [ngModel]="searchContacts" (ngModelChange)="handleInputchange($event)" autocomplete="off" >
+        </div>
+        <div *ngIf="usersService.isSearching" class="modal">
+            <app-modal-search [searchContacts]="searchContacts" ></app-modal-search>
+        </div>
+    </div>
+    <hr/>
+    <div class="all-solicitudes">
+        <h2>Solicitudes</h2>
+        <div *ngFor="let user of authService.user?.requests; let i = index" class="card">
+            <div class="image">
+                <div class="image-box">
+                    <img [src]="user?.image ?? '../../../../assets/no-perfil.jpg'" alt="perfil" class="image-perfil">
+                </div>
+                <p class="name">{{user.name}}</p>
+            </div>
+            <mat-icon (click)="addFriend(user.userName, user.uid)"  class="icon">check_circle</mat-icon>
+            <div *ngIf="i < authService.user.requests.length - 1" class="line3"></div>
+        </div>
+    </div>
+</div>

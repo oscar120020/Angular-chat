@@ -4,7 +4,18 @@ export interface contact {
     online: boolean;
     uid: string;
     imageUrl?: images;
-    userName?: string
+    userName?: string;
+    friends: string[];
+    requests: request[];
+    requestSeded: string[];
+}
+
+interface request{
+    image: string | null;
+    name: string;
+    uid: string;
+    userName: string;
+
 }
 
 interface images {

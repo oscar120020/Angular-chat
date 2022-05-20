@@ -18,7 +18,6 @@ export class UserNameComponent implements OnInit {
 
   sendUserName(){
     if(this.userName){
-      console.log(this.userName);
       this.autnService.updateUserName(this.userName, localStorage.getItem("token") ?? "")
       .subscribe(
         (res: any) => {

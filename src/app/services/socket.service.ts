@@ -17,14 +17,14 @@ export class SocketService {
   contactsBackUp: contact[];
   contacts: contact[];
   waitMessages: number = 0
-  constructor(private chatService: ChatService, private authService: AuthService) {
+  constructor(private chatService: ChatService, private authService: AuthService, private usersService: UsersService) {
     this.socket = io(environment.apiURL, {transports: ['websocket']});
   }
 
   getUserList(userId: string): Observable<boolean>{
     return new Observable((observer) => {
         this.socket.on('user-list', (users: contact[]) => {
-          this.contactsBackUp = users.filter(d => d.uid !== userId)
+          this.contactsBackUp = users
           observer.next(true);
         });
     });
@@ -61,6 +61,12 @@ export class SocketService {
     })
   }
 
+  emitState(){
+    this.socket.on('state', () => {
+      this.socket.emit("state")
+    })
+  }
+
   emitMessage(payload: message){
     this.socket.emit("inbox-message", payload)
   }
@@ -74,5 +80,17 @@ export class SocketService {
 
   emitMainConnection(token: string){
     this.socket.emit("main-connection", token)
+  }
+
+  updateContactList(){
+    this.socket.on("update-users", () => {
+      this.socket.emit("state")
+    })
+  }
+
+  updateUserInfo(token: string){
+    this.socket.on("user-change", () => {
+      this.usersService.getUser(token);
+    })
   }
 }

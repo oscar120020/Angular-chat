@@ -19,7 +19,7 @@ export class SidebarInfoComponent implements OnInit {
     private router: Router,
     private socketService: SocketService,
     private chatService: ChatService,
-    private usersService: UsersService
+    public usersService: UsersService
   ) {}
 
   ngOnInit(): void {
@@ -30,11 +30,15 @@ export class SidebarInfoComponent implements OnInit {
     localStorage.removeItem('token');
     this.router.navigate(['/login']);
     this.socketService.disconnect();
+    this.socketService.emitState();
     this.authService.user = {
       email: '',
       name: '',
       online: false,
       uid: '',
+      friends: [],
+      requests: [],
+      requestSeded: []
     };
     this.chatService.currentChat = []
     this.chatService.chatSelected = ""
@@ -46,6 +50,11 @@ export class SidebarInfoComponent implements OnInit {
 
   handlePerfil(){
     this.usersService.$openPerfil.emit(true)
+    this.handleOptions()
+  }
+
+  handleSolicitud(){
+    this.usersService.$openSolicitud.emit(true)
     this.handleOptions()
   }
 

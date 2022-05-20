@@ -7,8 +7,8 @@
 .sidebar-perfil{
     width: 30%;
     min-width: 300px;
-    border-right: 1px solid rgba(128, 128, 128, 0.192);
     position: relative;
+    /* border-right: 1px solid rgba(68, 68, 68, 0.137); */
 }
 
 .sidebar{
@@ -33,12 +33,22 @@
     transition: all 0.2s ease-in-out;
 }
 
+.solicitud{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 5;
+    transform: translateX(-100%);
+    transition: all 0.2s ease-in-out;
+}
+
 .chat{
     width: 100%;
 }
 
 .chat-box{
     width: 100%;
+    border-left: 1px solid rgba(68, 68, 68, 0.568);
 }
 
 .no-chat-box{
@@ -47,6 +57,7 @@
     height: 100%;
     align-items: center;
     background-color: #111b21;
+    border-left: 1px solid rgba(68, 68, 68, 0.568);
 }
 
 .no-chat{

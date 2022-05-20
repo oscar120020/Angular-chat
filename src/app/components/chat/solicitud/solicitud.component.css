@@ -1,0 +1,171 @@
+.solicitud{
+    width: 100%;
+    height: 100%;
+    background-color: #111b21;
+    display: flex;
+    flex-direction: column;
+}
+
+.bar{
+    width: calc(100% - 1rem);
+    height: 40px;
+    background-color: #202c33;
+    display: flex;
+    align-items: center;
+    padding: 1rem 0.5rem;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.295);
+}
+
+.bar p{
+    font-size: 22px;
+    width: 80%;
+    margin: 0;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+}
+
+.icon-box{
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon{
+    transform: scale(1.2);
+    cursor: pointer;
+    color: white;
+}
+
+.line{
+    width: 1px;
+    background-color: rgba(128, 128, 128, 0.5);
+    height: 80%;
+}
+
+.line2{
+    width: 1px;
+    background-color: rgba(128, 128, 128, 0.5);
+    height: 1rem;
+    margin: 0 10px;
+}
+
+.search-box{
+    position: relative;
+}
+
+.search{
+    width: 80%;
+    padding: .3rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #292f33;
+    margin: 1.5rem auto;
+    border-radius: 5px;
+}
+
+.icon-search{
+    color: white;
+    transform: scale(.8);
+    transform-origin: 100%;
+    margin: 0;
+}
+
+.search > input{
+    background-color: transparent;
+    border: none;
+    color: white;
+    width: 100%;
+}
+
+.search > input:focus{
+    outline: none;
+}
+
+hr{
+    width: 50%;
+    margin: 0 auto;
+    border: 0.5px solid rgba(255, 255, 255, 0.226);
+}
+
+.all-solicitudes{
+    width: 90%;
+    margin: 1rem auto;
+}
+
+.all-solicitudes > h2{
+    color: white;
+}
+
+.modal{
+    position: absolute;
+    width: 100%;
+}
+
+.card{
+    width: calc(100% - 2rem);
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    transition: background .2s ease-out;
+}
+
+.card:hover{
+    background-color: rgb(43, 48, 48);
+}
+
+.image{
+    display: flex;
+    align-items: center;
+}
+
+.name{
+    margin: 0;
+    margin-left: 1rem;
+    text-align: start;
+    color: white;
+}
+
+.image-box{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.image-perfil{
+    width: 100%;
+    height: 100%;
+}
+
+@supports(object-fit: cover){
+    .image-perfil{
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+    }
+  }
+
+.icon{
+    transform: scale(1.2);
+    color: white;
+    cursor: pointer;
+    transition: color .1s ease-out;
+}
+
+.icon:hover{
+    color: #005c4b;
+}
+
+.line3{
+    width: 90%;
+    height: 1px;
+    background-color: rgba(128, 128, 128, 0.39);
+    margin: auto;
+    position: absolute;
+    bottom: 0;
+}

@@ -23,11 +23,26 @@ export class ChatComponent implements OnInit {
 
   ngOnInit(): void {
     this.socketService.connect();
+    this.socketService.emitState();
+    this.socketService.updateContactList();
+    this.socketService.updateUserInfo(localStorage.getItem("token") ?? "");
     this.socketService.emitMainConnection(this.token);
     this.socketService.getUserList(this.authService.user.uid).subscribe(() => {
       this.socketService.filterUserList(this.usersService.query);
     });
     this.socketService.getMessagee();
+    this.openPerfil()
+    this.openSolicitud()
+    this.resezeFunction()
+  }
+
+  resezeFunction(){
+    if(window.innerWidth <= 630){
+      this.chatService.oneScreen = true
+    }
+  }
+
+  openPerfil(){
     this.usersService.$openPerfil.subscribe((value) => {
       const perfilBox = document.querySelector<HTMLElement>(".perfil")
       if(value){
@@ -37,13 +52,18 @@ export class ChatComponent implements OnInit {
       }
       
     })
-    this.resezeFunction()
   }
 
-  resezeFunction(){
-    if(window.innerWidth <= 630){
-      this.chatService.oneScreen = true
-    }
+  openSolicitud(){
+    this.usersService.$openSolicitud.subscribe((value) => {
+      const solicitudBox = document.querySelector<HTMLElement>(".solicitud")
+      if(value){
+        solicitudBox!.style.transform = "translateX(0)"
+      }else{
+        solicitudBox!.style.transform = "translateX(-100%)"
+      }
+      
+    })
   }
   
 }

@@ -7,12 +7,12 @@
 }
 
 .bar{
-    width: calc(100% - 2rem);
+    width: calc(100% - 1rem);
     height: 40px;
     background-color: #202c33;
     display: flex;
     align-items: center;
-    padding: 1rem;
+    padding: 1rem .5rem;
     border-bottom: 1px solid rgba(128, 128, 128, 0.295);
 }
 
@@ -22,16 +22,26 @@
     margin: 0;
     font-weight: bold;
     color: white;
+    text-align: center;
 }
 
 .icon-box{
     width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .icon{
     transform: scale(1.2);
     cursor: pointer;
     color: white;
+}
+
+.line{
+    width: 1px;
+    background-color: rgba(128, 128, 128, 0.5);
+    height: 80%;
 }
 
 .foto{

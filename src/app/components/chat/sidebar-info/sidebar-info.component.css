@@ -6,12 +6,13 @@
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid rgba(128, 128, 128, 0.356);
-    background-color: #1d252b;
+    background-color: #202c33;
 }
 
 .photo{
     display: flex;
     align-items: center;
+    cursor: pointer;
 }
 
 .image-perfil{
@@ -47,6 +48,21 @@
     position: relative;
     
 }
+.salir > p{
+    position: absolute;
+    margin: 0;
+    top: 10px;
+    right: 10px;
+    font-weight: bold;
+    font-size: 18px;
+    color: rgb(101, 189, 211);
+}
+
+.solicitud-parrafo{
+    font-weight: bold;
+    font-size: 18px;
+    color: rgb(101, 189, 211) !important;
+}
 
 .icon{
     cursor: pointer;
@@ -75,6 +91,13 @@
     padding: .7rem 1rem;
     color: white;
     border-bottom: 1px solid rgba(128, 128, 128, 0.342);
+    display: flex;
+    justify-content: space-between;
+}
+
+.menu > li > p{
+    color: white;
+    margin: 0;
 }
 
 .menu li:hover{

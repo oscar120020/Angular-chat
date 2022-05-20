@@ -1,0 +1,16 @@
+<div class="search">
+    <div *ngIf="usersService.foundedUsers.length === 0" class="no-encontrado">
+        <mat-icon class="no-icon">person</mat-icon>
+        <p>Sin resultados</p>
+    </div>
+    <div *ngFor="let user of usersService.foundedUsers; let i = index" class="card">
+        <div class="image">
+            <div class="image-box">
+                <img [src]="user?.image ?? '../../../../assets/no-perfil.jpg'" alt="perfil" class="image-perfil">
+            </div>
+            <p class="name">{{user.name}}</p>
+        </div>
+        <mat-icon (click)="sendRequest(user.uid)"  class="icon">person_add</mat-icon>
+        <div *ngIf="i < usersService.foundedUsers.length - 1" class="line"></div>
+    </div>
+</div>

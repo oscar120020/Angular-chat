@@ -20,3 +20,10 @@ export interface ErrorResponse {
     ok: boolean;
     msg: string;
 }
+
+export interface UserSolicitud {
+    name: string;
+    userName: string;
+    uid: string;
+    image: string
+}

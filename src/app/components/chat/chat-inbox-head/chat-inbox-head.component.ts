@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { contact } from 'src/app/interfaces/contact-interface';
+import { Group } from 'src/app/interfaces/group-interface';
 import { ChatService } from 'src/app/services/chat.service';
 import { UsersService } from 'src/app/services/users.service';
 
@@ -10,7 +11,7 @@ import { UsersService } from 'src/app/services/users.service';
 })
 export class ChatInboxHeadComponent implements OnInit {
 
-  @Input() chatUserInfo: contact;
+  @Input() chatUserInfo: contact | Group;
   constructor(private usersService: UsersService, public chatService: ChatService) { }
 
   ngOnInit(): void {
@@ -23,6 +24,10 @@ export class ChatInboxHeadComponent implements OnInit {
   cleanChat(){
     this.chatService.currentChat = []
     this.chatService.chatSelected = "" 
+  }
+
+  openchatInfo(){
+    this.usersService.isOpenChatInfo = true
   }
 
 }

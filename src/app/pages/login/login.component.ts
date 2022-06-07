@@ -16,6 +16,7 @@ export class LoginComponent implements OnInit {
     password: ''
   }
   remember: boolean = false;
+  isLoading: boolean = false
   constructor(private router: Router, private authService: AuthService) { 
   }
   
@@ -27,6 +28,7 @@ export class LoginComponent implements OnInit {
   }
 
   login(){
+    this.isLoading = true;
     if(this.user.email && this.user.password){
       this.authService.login(this.user)
       .subscribe(
@@ -39,10 +41,12 @@ export class LoginComponent implements OnInit {
             email: '',
             password: ''
           }
+          this.isLoading = false;
           this.router.navigate(["/"])
         },
         err => {
           const msg = err.error
+          this.isLoading = false;
           Swal.fire({
             title: "Error",
             text: msg?.msg,

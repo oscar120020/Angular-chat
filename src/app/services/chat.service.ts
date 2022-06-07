@@ -5,13 +5,14 @@ import { contact } from '../interfaces/contact-interface';
 import { Observable } from 'rxjs';
 import { SocketService } from './socket.service';
 import { environment } from 'src/environments/environment';
+import { Group } from '../interfaces/group-interface';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ChatService {
   currentChat: message[] = [];
-  chatUser: contact;
+  chatUser: contact | Group;
   chatSelected: string;
   baseUrl = environment.apiURL
   offsetTop: number = 0;
@@ -23,18 +24,23 @@ export class ChatService {
   searchMessagesList: message[] = [];
   boxChatHeight: boolean = true;
   oneScreen = false
+  isGroupChatSelected = false 
+  groupSelected: Group;
+  groupUsers: any = []
   constructor(private http: HttpClient) {}
 
   getAllMessages(uid: string, token: string, getTop: boolean, msgId?: string){
     this.chatSelected = uid
     return new Observable((observer) => {
-      this.http.get(`${this.baseUrl}/api/messages/${uid}?offset=${getTop ? this.offsetTop: this.offsetBotton}`, {
+      this.http.get(`${this.baseUrl}/api/messages/${uid}?offset=${getTop ? this.offsetTop: this.offsetBotton}&isGroup=${this.isGroupChatSelected}`, {
         headers: {
           "x-token": token
         }
       })
       .subscribe((data: any) => {
         const messages: message[] = data.messages
+        console.log(data);
+        
         if(msgId){
           this.currentChat = messages
         }else{
@@ -44,6 +50,8 @@ export class ChatService {
             this.currentChat.push(...messages)
           }
         }
+        console.log(data);
+        
         this.chatUser = data.user
         observer.next(data)
       })

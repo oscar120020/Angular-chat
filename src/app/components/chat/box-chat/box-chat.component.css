@@ -23,10 +23,21 @@
 .box2{
     display: flex;
     width: 30%;
+    min-width: 300px;
     height: 100%;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    border-left: 1px solid rgba(128, 128, 128, 0.116);
+}
+
+.box3{
+    display: flex;
+    width: 30%;
+    min-width: 300px;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
     border-left: 1px solid rgba(128, 128, 128, 0.116);
 }
 
@@ -41,6 +52,19 @@
     width: 100%;
     overflow-y: scroll;
     scroll-behavior: smooth;
+}
+
+.messages::-webkit-scrollbar {
+    -webkit-appearance: none;
+}
+
+.messages::-webkit-scrollbar:vertical {
+    width: 5px;
+}
+
+.messages::-webkit-scrollbar-thumb {
+    background-color: #005c4b;
+    border-radius: 20px;
 }
 
 .form{
@@ -110,4 +134,8 @@
 
 .disabled{
     display: none !important;
+}
+
+.chat-info{
+    width: 100%;
 }

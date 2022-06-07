@@ -8,7 +8,16 @@
 }
 
 .search::-webkit-scrollbar {
-    display: none;
+    -webkit-appearance: none;
+}
+
+.search::-webkit-scrollbar:vertical {
+    width: 5px;
+}
+
+.search::-webkit-scrollbar-thumb {
+    background-color: #005c4b;
+    border-radius: 20px;
 }
 
 .card{
@@ -62,6 +71,11 @@
     color: white;
     cursor: pointer;
     transition: color .1s ease-out;
+}
+
+.icon2{
+    transform: scale(1.2);
+    color: #005c4b;
 }
 
 .icon:hover{

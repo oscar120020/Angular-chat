@@ -29,6 +29,9 @@ import { PerfilComponent } from './components/chat/perfil/perfil.component';
 import { UserNameComponent } from './components/user-name/user-name.component';
 import { SolicitudComponent } from './components/chat/solicitud/solicitud.component';
 import { ModalSearchComponent } from './components/chat/modal-search/modal-search.component';
+import { GroupsComponent } from './components/groups/groups.component';
+import { GroupComponent } from './components/chat/group/group.component';
+import { ChatInfoComponent } from './components/chat/chat-info/chat-info.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -53,6 +56,9 @@ import { ModalSearchComponent } from './components/chat/modal-search/modal-searc
     UserNameComponent,
     SolicitudComponent,
     ModalSearchComponent,
+    GroupsComponent,
+    GroupComponent,
+    ChatInfoComponent,
   ],
   imports: [
     BrowserModule,

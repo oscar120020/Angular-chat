@@ -16,7 +16,7 @@ export class RegisterComponent implements OnInit {
     email: '',
     password: ''
   }
-
+  isLoading: boolean = false
   constructor(private router: Router, private authService: AuthService) {
   }
 
@@ -28,6 +28,7 @@ export class RegisterComponent implements OnInit {
   }
 
   register(){
+    this.isLoading = true
     if(this.user.email && this.user.name && this.user.password){
       this.authService.register(this.user)
       .subscribe(
@@ -40,10 +41,12 @@ export class RegisterComponent implements OnInit {
             email: '',
             password: ''
           }
+          this.isLoading = false
           this.router.navigate(["/"])
         },
         err => {
           const msg = err.error
+          this.isLoading = false
           Swal.fire({
             title: "Error",
             text: msg?.msg,

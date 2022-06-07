@@ -1,3 +1,7 @@
 <div class="search">
-    <input class="input-search" type="text" placeholder="Buscar contacto" name="search" [ngModel]="search" (ngModelChange)="inputChange($event)" >
+    <div class="search2">
+        <mat-icon class="icon-search" >search</mat-icon>
+        <div class="line2"></div>
+        <input type="text" placeholder="Buscar contacto" name="searchContacts" [ngModel]="search" (ngModelChange)="inputChange($event)" autocomplete="off" >
+    </div>
 </div>

@@ -11,7 +11,8 @@
         <ul *ngIf="isOptionsActive" class="menu" >
             <li (click)="handlePerfil()" >Perfil</li>
             <li (click)="handleSolicitud()" ><p>Solicitudes</p><p class="solicitud-parrafo" >{{authService.user.requests.length}}</p></li>
+            <li (click)="handleGroup()" >Crear grupo</li>
             <li (click)="logout()">Salir</li>
         </ul>
     </div>
-</div>
+</div> 

@@ -61,6 +61,9 @@ input:focus{
     font-size: 20px;
     cursor: pointer;
     font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .btn:hover{
@@ -78,6 +81,71 @@ input:focus{
 
 #remember{
     margin-right: 5px;
+}
+
+.alert_text1{
+    font-size: 35px;
+}
+.alert_text2{
+    font-size: 35px;
+    animation: suspensive2 2.5s infinite;
+}
+.alert_text3{
+    font-size: 35px;
+    animation: suspensive3 2.5s infinite;
+}
+.alert_text4{
+    font-size: 35px;
+    animation: suspensive4 2.5s infinite;
+}
+.alert_text5{
+    font-size: 35px;
+    animation: suspensive5 2.5s infinite;
+}
+
+@keyframes suspensive2 {
+    0% {
+        opacity: 0;
+    }
+    19% {
+        opacity: 0;
+    }
+    20% {
+        opacity: 1;
+    }
+}
+@keyframes suspensive3 {
+    0% {
+        opacity: 0;
+    }
+    39% {
+        opacity: 0;
+    }
+    40% {
+        opacity: 1;
+    }
+}
+@keyframes suspensive4 {
+    0% {
+        opacity: 0;
+    }
+    59% {
+        opacity: 0;
+    }
+    60% {
+        opacity: 1;
+    }
+}
+@keyframes suspensive5 {
+    0% {
+        opacity: 0;
+    }
+    79% {
+        opacity: 0;
+    }
+    80% {
+        opacity: 1;
+    }
 }
 
 @media screen and (max-width: 670px){

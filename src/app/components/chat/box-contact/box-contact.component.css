@@ -5,8 +5,17 @@
     overflow-y: scroll;
 }
 
-.box-contact::-webkit-scrollbar{
-    display: none;
+.box-contact::-webkit-scrollbar {
+    -webkit-appearance: none;
+}
+
+.box-contact::-webkit-scrollbar:vertical {
+    width: 5px;
+}
+
+.box-contact::-webkit-scrollbar-thumb {
+    background-color: #005c4b;
+    border-radius: 20px;
 }
 
 .empty-contacts{

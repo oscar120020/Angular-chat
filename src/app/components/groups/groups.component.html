@@ -1,0 +1,33 @@
+<div class="create-group">
+    <div class="bar">
+        <div class="icon-box">
+            <mat-icon class="icon" (click)="handleBack()"  >arrow_back</mat-icon>
+        </div>
+        <div class="line"></div>
+        <p>Crear grupo</p>
+    </div>
+    <div class="search-box">
+        <div class="inbut-box">
+            <input class="input" id="group-name" type="text" placeholder="Nombre del grupo" name="groupName" [(ngModel)]="groupName" autocomplete="off" >
+        </div>
+    </div>
+
+    <div class="add-friends">
+        <h2>Seleccionar contactos</h2>
+        <div class="friends-box">
+            <div *ngFor="let contact of socketService.contacts let i = index" class="card">
+                <div class="image">
+                    <div class="image-box">
+                        <img [src]="contact?.imageUrl?.medium ?? '../../../../assets/no-perfil.jpg'" alt="perfil" class="image-perfil">
+                    </div>
+                    <p class="name">{{contact.name}}</p>
+                </div>
+                <mat-icon (click)="selectFriend(contact.uid, $event)" class="icon2">check_circle</mat-icon>
+                <div *ngIf="i < socketService.contacts.length - 1" class="line3"></div>
+            </div>
+        </div>
+    </div>
+    <div class="create-box">
+        <button (click)="createGroup()" >Crear</button>
+    </div>
+</div>

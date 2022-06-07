@@ -1,0 +1,116 @@
+.contact{
+    height: 70px;
+    cursor: pointer;
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.39);
+}
+
+.active{
+  background-color: #21272b65;
+}
+
+.image-perfil{
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.image-box{
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.image-perfil{
+  width: 100%;
+  height: 100%;
+}
+
+@supports(object-fit: cover){
+  .image-perfil{
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+  }
+}
+
+.contact-info{
+    margin-left: 0.5rem;
+}
+
+.name{
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: white;
+}
+
+.online{
+    color: #005c4b;
+    font-weight: bold;
+}
+
+.offline{
+    color: rgba(250, 39, 39, 0.418);
+    font-weight: bold;
+    /* color: #2c3338; */
+}
+
+.writing{
+    display: flex;
+    align-items: center;
+    color: white;
+}
+
+.dot-flashing {
+    position: relative;
+    width: 8px;
+    height: 8px;
+    border-radius: 5px;
+    margin: 0 15px;
+    background-color: #80ff95;
+    color: #80ff95;
+    animation: dotFlashing 1s infinite linear alternate;
+    animation-delay: .5s;
+  }
+  
+  .dot-flashing::before, .dot-flashing::after {
+    content: '';
+    display: inline-block;
+    position: absolute;
+    top: 0;
+  }
+  
+  .dot-flashing::before {
+    left: -10px;
+    width: 8px;
+    height: 8px;
+    border-radius: 5px;
+    background-color: #80ff95;
+    color: #80ff95;
+    animation: dotFlashing 1s infinite alternate;
+    animation-delay: 0s;
+  }
+  
+  .dot-flashing::after {
+    left: 10px;
+    width: 8px;
+    height: 8px;
+    border-radius: 5px;
+    background-color: #80ff95;
+    color: #80ff95;
+    animation: dotFlashing 1s infinite alternate;
+    animation-delay: 1s;
+  }
+  
+  @keyframes dotFlashing {
+    0% {
+      background-color: #80ff95;
+    }
+    50%,
+    100% {
+      background-color: #e6fbff;
+    }
+  }

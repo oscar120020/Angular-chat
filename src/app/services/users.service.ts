@@ -14,10 +14,12 @@ export class UsersService {
 
   query: string = "";
   isOpenSearchMessage = false
+  isOpenChatInfo = false
   userActive: string;
   apiUrl: string = environment.apiURL
   $openPerfil = new EventEmitter()
   $openSolicitud = new EventEmitter()
+  $openCreateGroup = new EventEmitter()
   isSearching: boolean = false
   foundedUsers: UserSolicitud[] = [];
   constructor(private http: HttpClient, private authService: AuthService) { }
@@ -52,6 +54,19 @@ export class UsersService {
 
   changeImagePerfil(data: FormData, myId: string, token: string){
     return this.http.post(`${this.apiUrl}/api/login/changePerfil/${myId}`, data, {
+      headers: {
+        "x-token": token,
+      }
+    })
+    .pipe(
+      map((res: any | NameResponse) => {
+        return res.response
+      })
+    )
+  }
+
+  changeGroupPerfil(data: FormData, groupId: string, token: string){
+    return this.http.post(`${this.apiUrl}/api/groups/group-perfil/${groupId}`, data, {
       headers: {
         "x-token": token,
       }
@@ -99,4 +114,21 @@ export class UsersService {
       }
     )
   }
+
+  getSimpleUser(token: string, userId: string){
+    return this.http.post(`${this.apiUrl}/api/login/get-simple-user`, {userId}, {
+      headers: {
+        "x-token": token,
+      }
+    })
+  }
+  
+  createGroup(name: string, members: string[], token: string){
+    return this.http.post(`${this.apiUrl}/api/groups/create`, { name, members }, {
+      headers: {
+        "x-token": token,
+      }
+    })
+  }
+
 }

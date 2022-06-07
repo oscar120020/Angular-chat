@@ -1,4 +1,9 @@
 <div class="message-box">
+    <div *ngIf="group" class="photo">
+        <div class="image-box">
+            <img [src]="userData?.image ?? '../../../../assets/no-perfil.jpg'" alt="perfil" class="image-perfil">
+        </div>
+    </div>
     <div class="content">
         <div class="message">
             <p class="message-p">{{message.message}}</p>

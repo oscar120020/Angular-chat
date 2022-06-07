@@ -10,7 +10,8 @@
             </div>
             <p class="name">{{user.name}}</p>
         </div>
-        <mat-icon (click)="sendRequest(user.uid)"  class="icon">person_add</mat-icon>
+        <mat-icon *ngIf="!user.sended" (click)="sendRequest(user.uid)"  class="icon">person_add</mat-icon>
+        <mat-icon *ngIf="user.sended" class="icon2">check_circle</mat-icon>
         <div *ngIf="i < usersService.foundedUsers.length - 1" class="line"></div>
     </div>
 </div>

@@ -18,9 +18,8 @@ interface request{
 
 }
 
-interface images {
+export interface images {
     extraSmall: string;
     small: string;
     medium: string;
-    original :string
 }

@@ -1,10 +1,12 @@
 <div class="box-contact">
-    <div class="empty-contacts" *ngIf="!socketService?.contacts?.length; else contactos" >
+    <div class="empty-contacts" *ngIf="!socketService?.contacts?.length && !socketService?.groups?.length; else contactos" >
         <div class="message-box">
-            <h3 class="message">Contacto(s) no encontrado(s)</h3>
+            <h3 class="message">Chat(s) no encontrado(s)</h3>
         </div>
     </div>
     <ng-template #contactos>
         <app-contact *ngFor="let each of socketService.contacts" [contact]="each"></app-contact>
+        <app-group *ngFor="let each of socketService.groups" [group]="each"></app-group>
     </ng-template>
+    
 </div>

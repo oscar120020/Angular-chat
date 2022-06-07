@@ -10,7 +10,7 @@
         <div class="search">
             <mat-icon class="icon-search" >search</mat-icon>
             <div class="line2"></div>
-            <input type="text" placeholder="Buscar por usuario" name="searchContacts" [ngModel]="searchContacts" (ngModelChange)="handleInputchange($event)" autocomplete="off" >
+            <input type="text" placeholder="Buscar por nombre de usuario" name="searchContacts" [ngModel]="searchContacts" (ngModelChange)="handleInputchange($event)" autocomplete="off" >
         </div>
         <div *ngIf="usersService.isSearching" class="modal">
             <app-modal-search [searchContacts]="searchContacts" ></app-modal-search>

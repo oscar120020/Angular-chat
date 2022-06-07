@@ -1,0 +1,20 @@
+<div (click)="select(group.groupId)"  class="contact">
+    <div class="photo">
+        <div class="image-box">
+            <img [src]=" group.imageUrl?.medium ?? '../../../../assets/group-perfil-clean.jpg'" alt="perfil" class="image-perfil">
+        </div>
+    </div>
+    <div class="contact-info">
+        <p class="name">{{group.name}}</p>
+        <!-- <span class="writing" *ngIf="isWriting && whoWrite === contact.uid; else onlineState">
+            <div class="dot-flashing"></div>
+            Escribiendo
+        </span> -->
+        <!-- <ng-template #onlineState>
+            <span *ngIf="contact.online, else offline" class="online">Online</span>
+            <ng-template #offline>
+                <span class="offline">Offline</span>
+            </ng-template>
+        </ng-template> -->
+    </div>
+</div>

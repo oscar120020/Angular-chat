@@ -1,0 +1,51 @@
+<div class="perfil">
+    <div class="bar">
+        <div class="icon-box">
+            <mat-icon class="icon" (click)="handleBack()"  >clear</mat-icon>
+        </div>
+        <div class="line"></div>
+        <p>info. del chat</p>
+    </div>
+    <div class="info">
+        <div class="foto" *ngIf="chatService?.groupSelected?.admin === authService.user.uid; else simple">
+            <div class="image-box">
+                <img [src]="chatService.chatUser.imageUrl?.medium ?? '../../../../assets/no-perfil.jpg'" alt="perfil" class="image-perfil" (click)="fileImage.click()" >
+            </div>
+            <div class="text">
+                <mat-icon>camera_alt</mat-icon>
+                <p>Cambiar foto</p>
+            </div>
+            <input class="file" type="file" (change)="handleImage($event)" #fileImage>
+        </div>
+        <ng-template #simple>
+            <div class="foto">
+                <div class="image-box">
+                    <img [src]="chatService.chatUser.imageUrl?.medium ?? '../../../../assets/no-perfil.jpg'" alt="perfil" class="image-perfil2" >
+                </div>
+            </div>
+        </ng-template>
+        <div class="inputs">
+            <div class="userName">
+                <h2>Nombre</h2>
+                <div>
+                    <h1>{{chatService.chatUser.name}}</h1>
+                </div>
+            </div>
+            <div *ngIf="chatService.isGroupChatSelected" class="group-users">
+                <h2>Integrantes</h2>
+                <div class="group-users-box">
+                    <div *ngFor="let user of chatService.groupUsers; let i = index" class="card">
+                        <div class="image">
+                            <div class="image-box2">
+                                <img [src]="user?.image ?? '../../../../assets/group-perfil-clean.jpg'" alt="perfil" class="image-perfil2">
+                            </div>
+                            <p class="name">{{user.id === authService.user.uid ? "Tú" : user.name}}</p>
+                        </div>
+                        <div *ngIf="i < chatService.groupUsers.length - 1" class="line3"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

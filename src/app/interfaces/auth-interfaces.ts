@@ -25,5 +25,6 @@ export interface UserSolicitud {
     name: string;
     userName: string;
     uid: string;
-    image: string
+    image: string;
+    sended: boolean;
 }

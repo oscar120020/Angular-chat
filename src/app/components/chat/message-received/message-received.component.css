@@ -1,49 +1,65 @@
-.message-box{
-    padding: 1rem;
-    display: flex;
+.message-box {
+  padding: 1rem;
+  display: flex;
 }
 
-.content{
-    display: flex;
-    position: relative;
-    background-color: #202c33;
-    padding: 0.5rem;
-    border-radius: 5px;
-    max-width: 50%;
-    color: white;
+.content {
+  display: flex;
+  position: relative;
+  background-color: #202c33;
+  padding: 0.5rem;
+  border-radius: 5px;
+  max-width: 50%;
+  color: white;
 }
 
-.content::after{
-    content: "";
-    position: absolute;
-    width: 5px;
-    left: -10px;
-    bottom: 0;
-    border-left: 10px solid transparent;
-    border-bottom: 10px solid #202c33;
+.content::after {
+  content: "";
+  position: absolute;
+  width: 5px;
+  left: -10px;
+  bottom: 0;
+  border-left: 10px solid transparent;
+  border-bottom: 10px solid #202c33;
 }
 
-.message{
-    display: flex;
-    align-items: center;
+.message {
+  display: flex;
+  align-items: center;
 }
 
-.message-p{
-    display: inline-block;
-    word-break: break-word;
-    margin-left: 0.5rem;
+.message-p {
+  display: inline-block;
+  word-break: break-word;
+  margin-left: 0.5rem;
 }
 
-.time{
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    margin-left: 1rem;
-    font-size: 12px;
-    min-width: 50px;
+.time {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  margin-left: 1rem;
+  font-size: 12px;
+  min-width: 50px;
 }
 
-.image-perfil{
-    width: 50px;
-    border-radius: 50%;
+.image-box {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: .5rem;
+}
+
+.image-perfil {
+  width: 100%;
+  height: 100%;
+}
+
+@supports (object-fit: cover) {
+  .image-perfil {
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+  }
 }

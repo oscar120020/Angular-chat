@@ -26,6 +26,7 @@ export class ContactComponent implements OnInit {
   }
 
   select(uid: string){
+    this.chatService.isGroupChatSelected = false
     this.chatService.currentChat = []
     this.chatService.offsetTop = 0
     this.chatService.offsetBotton = 0

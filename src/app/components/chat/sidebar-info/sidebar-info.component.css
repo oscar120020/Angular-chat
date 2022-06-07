@@ -82,10 +82,11 @@
     background-color: #25343d;
     list-style: none;
     right: calc(10px);
-    bottom: calc(-2.8rem - 40px);
+    top: 70px;
     width: 200px;
     border: 1px solid rgba(101, 189, 211, 0.644);
 }
+
 
 .menu li{
     padding: .7rem 1rem;

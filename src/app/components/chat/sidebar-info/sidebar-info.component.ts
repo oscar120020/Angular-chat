@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { contact } from 'src/app/interfaces/contact-interface';
 import { AuthService } from 'src/app/services/auth.service';
@@ -14,6 +14,7 @@ import { UsersService } from 'src/app/services/users.service';
 export class SidebarInfoComponent implements OnInit {
 
   isOptionsActive: boolean = false
+
   constructor(
     public authService: AuthService,
     private router: Router,
@@ -55,6 +56,11 @@ export class SidebarInfoComponent implements OnInit {
 
   handleSolicitud(){
     this.usersService.$openSolicitud.emit(true)
+    this.handleOptions()
+  }
+
+  handleGroup(){
+    this.usersService.$openCreateGroup.emit(true)
     this.handleOptions()
   }
 

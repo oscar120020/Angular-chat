@@ -27,12 +27,16 @@ export class ChatComponent implements OnInit {
     this.socketService.updateContactList();
     this.socketService.updateUserInfo(localStorage.getItem("token") ?? "");
     this.socketService.emitMainConnection(this.token);
-    this.socketService.getUserList(this.authService.user.uid).subscribe(() => {
+    this.socketService.getUserList().subscribe(() => {
       this.socketService.filterUserList(this.usersService.query);
+    });
+    this.socketService.getGroupList().subscribe(() => {
+      this.socketService.filterGroupList(this.usersService.query);
     });
     this.socketService.getMessagee();
     this.openPerfil()
     this.openSolicitud()
+    this.openGroup()
     this.resezeFunction()
   }
 
@@ -63,6 +67,17 @@ export class ChatComponent implements OnInit {
         solicitudBox!.style.transform = "translateX(-100%)"
       }
       
+    })
+  }
+
+  openGroup(){
+    this.usersService.$openCreateGroup.subscribe((value) => {
+      const groupBox = document.querySelector<HTMLElement>(".group")
+      if(value){
+        groupBox!.style.transform = "translateX(0)"
+      }else{
+        groupBox!.style.transform = "translateX(-100%)"
+      }
     })
   }
   

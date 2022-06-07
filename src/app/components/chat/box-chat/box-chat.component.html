@@ -1,16 +1,26 @@
 <div class="box-chat">
-    <div class="box1" [ngClass]="[!usersService.isOpenSearchMessage ? 'fullwidht' : '', !(!usersService.isOpenSearchMessage || (usersService.isOpenSearchMessage && !chatService.oneScreen)) ? 'disabled' : '']">
+    <div class="box1" [ngClass]="[(!usersService.isOpenSearchMessage && !usersService.isOpenChatInfo) ? 'fullwidht' : '', ((usersService.isOpenSearchMessage || usersService.isOpenChatInfo) && chatService.oneScreen) ? 'disabled' : '']">
         <div class="head">
             <app-chat-inbox-head [chatUserInfo]="chatService.chatUser" ></app-chat-inbox-head>
         </div>
         <div #messageBox class="messages">
             <div class="box-message" *ngFor="let message of chatService.currentChat" [id]="message.msgId">
-                <div class="send" *ngIf="message.to == chatService.chatSelected; else recived">
-                    <app-message-sent (doScroll)="doScroll()" [message]="message" ></app-message-sent>
+                <div *ngIf="!chatService.isGroupChatSelected" >
+                    <div class="send" *ngIf="message.to === chatService.chatSelected; else recived">
+                        <app-message-sent (doScroll)="doScroll()" [message]="message" ></app-message-sent>
+                    </div>
+                    <ng-template #recived class="received" >
+                        <app-message-received (doScroll)="doScroll()" [message]="message" [group]="false" ></app-message-received>
+                    </ng-template>
                 </div>
-                <ng-template #recived class="received" >
-                    <app-message-received (doScroll)="doScroll()" [message]="message" ></app-message-received>
-                </ng-template>
+                <div *ngIf="chatService.isGroupChatSelected">
+                    <div class="send" *ngIf="message.from === authService.user.uid; else recived">
+                        <app-message-sent (doScroll)="doScroll()" [message]="message" ></app-message-sent>
+                    </div>
+                    <ng-template #recived class="received" >
+                        <app-message-received (doScroll)="doScroll()" [message]="message" [group]="true" ></app-message-received>
+                    </ng-template>
+                </div>
             </div>
             <div (click)="pendingMessages()" *ngIf="socketService.waitMessages > 0" class="unread-messages" >
                 <mat-icon class="icon" >keyboard_arrow_down</mat-icon>
@@ -31,5 +41,8 @@
         <div class="search-results">
             <app-search-message-results></app-search-message-results>
         </div>
+    </div>
+    <div *ngIf="usersService.isOpenChatInfo" class="box3" [ngClass]="chatService.oneScreen ? 'fullScreen' : '' " >
+        <app-chat-info class="fullScreen" ></app-chat-info>
     </div>
 </div>

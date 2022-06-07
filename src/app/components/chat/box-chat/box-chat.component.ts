@@ -1,4 +1,5 @@
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
 import { ChatService } from 'src/app/services/chat.service';
 import { SocketService } from 'src/app/services/socket.service';
 import { UsersService } from 'src/app/services/users.service';
@@ -10,7 +11,7 @@ import { UsersService } from 'src/app/services/users.service';
 })
 export class BoxChatComponent implements AfterViewInit, OnInit {
 
-  constructor(public chatService: ChatService, public usersService: UsersService, public socketService: SocketService) {}
+  constructor(public chatService: ChatService, public usersService: UsersService, public socketService: SocketService, public authService: AuthService) {}
 
   currentScroll:any;
   lastChild: any;

@@ -18,6 +18,7 @@ export class SidebarSearchComponent implements OnInit {
   inputChange(element: string){
     this.usersService.query = element
     this.socketService.filterUserList(element)
+    this.socketService.filterGroupList(element)
   }
 
 }

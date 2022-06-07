@@ -8,6 +8,7 @@ import { ChatService } from './chat.service';
 import { UsersService } from './users.service';
 import { AuthService } from './auth.service';
 import { environment } from 'src/environments/environment';
+import { Group } from '../interfaces/group-interface';
 
 @Injectable({
   providedIn: 'root',
@@ -16,15 +17,26 @@ export class SocketService {
   socket: Socket;
   contactsBackUp: contact[];
   contacts: contact[];
+  groupsBackUp: Group[];
+  groups: Group[];
   waitMessages: number = 0
   constructor(private chatService: ChatService, private authService: AuthService, private usersService: UsersService) {
     this.socket = io(environment.apiURL, {transports: ['websocket']});
   }
 
-  getUserList(userId: string): Observable<boolean>{
+  getUserList(): Observable<boolean>{
     return new Observable((observer) => {
         this.socket.on('user-list', (users: contact[]) => {
           this.contactsBackUp = users
+          observer.next(true);
+        });
+    });
+  }
+
+  getGroupList(): Observable<boolean>{
+    return new Observable((observer) => {
+        this.socket.on('group-list', (groups: Group[]) => {
+          this.groupsBackUp = groups
           observer.next(true);
         });
     });
@@ -34,6 +46,13 @@ export class SocketService {
     this.contacts = [...this.contactsBackUp]
     if(query){
       this.contacts = this.contacts.filter(d => d.name.toLowerCase().includes(query.toLowerCase()))
+    }
+  }
+
+  filterGroupList(query: string){    
+    this.groups = [...this.groupsBackUp]
+    if(query){
+      this.groups = this.groups.filter(group => group.name.toLowerCase().includes(query.toLowerCase()))
     }
   }
 
@@ -49,8 +68,16 @@ export class SocketService {
             this.waitMessages += 1
           }
         }
+        if(message.to === this.chatService.chatSelected){
+          if(this.chatService.boxChatHeight){
+            this.chatService.currentChat.push(message)
+          }else{
+            this.waitMessages += 1
+          }
+        }
       }
     });
+    
   }
 
   emitWriting(writing: boolean, to: string, from: string){

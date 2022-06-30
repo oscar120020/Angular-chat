@@ -3,7 +3,6 @@ import { contact } from 'src/app/interfaces/contact-interface';
 import { ChatService } from 'src/app/services/chat.service';
 import { SocketService } from 'src/app/services/socket.service';
 import { UsersService } from 'src/app/services/users.service';
-import { BoxChatComponent } from '../box-chat/box-chat.component';
 
 @Component({
   selector: 'app-contact',

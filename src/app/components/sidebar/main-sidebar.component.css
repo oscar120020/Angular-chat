@@ -1,0 +1,31 @@
+.sidebar{
+    width: 100%;
+    height: 100%;
+}
+
+.perfil{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 5;
+    transform: translateX(-100%);
+    transition: all 0.2s ease-in-out;
+}
+
+.solicitud{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 5;
+    transform: translateX(-100%);
+    transition: all 0.2s ease-in-out;
+}
+
+.group{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 5;
+    transform: translateX(-100%);
+    transition: all 0.2s ease-in-out;
+}

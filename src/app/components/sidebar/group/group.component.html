@@ -1,0 +1,10 @@
+<div (click)="select(group.groupId)"  class="contact">
+    <div class="photo">
+        <div class="image-box">
+            <img [src]=" group.imageUrl?.medium ?? '../../../../assets/group-perfil-clean.jpg'" alt="perfil" class="image-perfil">
+        </div>
+    </div>
+    <div class="contact-info">
+        <p class="name">{{group.name}}</p>
+    </div>
+</div>
